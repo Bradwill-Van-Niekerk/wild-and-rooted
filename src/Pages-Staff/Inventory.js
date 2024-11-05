@@ -1,6 +1,6 @@
 
 
-function sideBar(){
+function SideBar(){
 
 }
 
@@ -16,7 +16,7 @@ function Inventory(){
         </div>
         <div className="InventoryBox2"> {/* Grid 1 */}
             <div className="InventoryBoxes1">
-                <sideBar />
+                <SideBar />
             </div>
             <div className="InventoryBoxes2">
                 <Data />
