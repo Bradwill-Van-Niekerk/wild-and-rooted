@@ -1,0 +1,133 @@
+/* Header.css */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .nav-links {
+    list-style-type: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-right: 20px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  /* Hero.css */
+.hero {
+    background-image: url('/images/hero-bg.jpg'); /* Replace with your hero image */
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+  }
+  
+  .btn {
+    padding: 15px 25px;
+    background-color: #ff6347;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+  }
+  
+  /* About.css */
+.about {
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+  }
+  
+  .about h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .about p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-top: 20px;
+  }
+  
+  /* MenuHighlights.css */
+.menu-highlights {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.menu-list {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.menu-item {
+  width: 30%;
+}
+
+.menu-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.menu-item h3 {
+  margin-top: 10px;
+  font-size: 1.5em;
+}
+
+/* Testimonials.css */
+.testimonials {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .testimonials .testimonial {
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  
+  .testimonials h4 {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  /* Footer.css */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .social-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
