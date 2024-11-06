@@ -1,9 +1,7 @@
 import React from 'react';
 import './Home.css';
 import './Header';
-
-
-
+import Contact from '../Components/Contact';
 
 const Hero = () => {
   return (
@@ -17,7 +15,6 @@ const Hero = () => {
     </section>
   );
 };
-
 
 const About = () => {
   return (
@@ -76,6 +73,7 @@ const Home = () => {
       <Hero />
       <About />
       <Testimonials />
+      <Contact/>
       </> 
   
   )
