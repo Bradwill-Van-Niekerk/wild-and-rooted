@@ -1,21 +1,25 @@
+import '../Pages-Staff-CSS/Orders.css'
+
 function Orders(){
     return(
         <>
         <div className="HomesBox1">
-
+            <h1>
+                Orders
+            </h1>
         </div>
         <div className="HomesBox2"> {/*grid 1 with 3 columns*/}
-            <div className="HomesBox1">
+            <div className="HomesBoxe1">
                 <div className="HomesBoxes1">
                     <h2>
-                        Orders coming in
+                        Waiting
                     </h2>
                 </div>
                 <div className="HomesBoxes2">
                 
                 </div>
             </div>
-            <div className="HomesBox2">
+            <div className="HomesBoxe2">
                 <div className="HomesBoxes1">
                     <h2>
                         In Progress
@@ -25,7 +29,7 @@ function Orders(){
                 
                 </div>
             </div>
-            <div className="HomesBox3">
+            <div className="HomesBoxe3">
                 <div className="HomesBoxes1">
                     <h2>
                         Orders Going out
