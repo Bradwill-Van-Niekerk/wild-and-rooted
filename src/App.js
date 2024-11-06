@@ -19,7 +19,6 @@ import Inventory from './Pages-Staff/Inventory.js'
 function App() {
   return (
     <div className="App">
-      {/* <Orders/> */}
       <BrowserRouter>
         <Navbar />
           <Routes>

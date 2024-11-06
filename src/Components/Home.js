@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import './Header';
 import Contact from '../Components/Contact';
+import Menu from './Menu';
 
 const Hero = () => {
   return (
@@ -73,6 +74,7 @@ const Home = () => {
       <Hero />
       <About />
       <Testimonials />
+      <Menu/>
       <Contact/>
       </> 
   
