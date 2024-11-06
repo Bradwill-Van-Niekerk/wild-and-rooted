@@ -5,12 +5,17 @@ import Home from './Components/Home';
 import Logo from './Pages/media/logo.jpeg';
 
 
+import Orders from './Pages-Staff/Orders.js';
+// import Inventory from './Pages-Staff/Inventory.js'
+
 
 function App() {
   return (
     <div className="App">
       <Navbar/>
       <Home/>
+      {/* <Inventory /> */}
+      <Orders/>
     </div>
   );
 }
