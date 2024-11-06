@@ -1,24 +1,29 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+    // if (user == null){
     return (
         <header>
             <nav style={styles.nav}>
                 <div style={styles.logoContainer}>
                     <img
-                        src="/path/to/logo.png" 
+                        src="https://i.postimg.cc/XNPj7F9C/logo.jpg" 
                         alt="Farmhouse Fare Logo"
                         style={styles.logo}
                     />
                     <h1 style={styles.logoText}>Farmhouse Fare</h1>
                 </div>
                 <ul style={styles.navLinks}>
-                    <li><a href="#home" style={styles.link}>Home</a></li>
-                    <li><a href="#categories" style={styles.link}>Categories</a></li>
-                    <li><a href="#sign-up" style={styles.link}>Sign-up</a></li>
-                    <li><a href="#sell" style={styles.link}>Sell</a></li>
-                    <li><a href="#buy" style={styles.link}>Buy</a></li>
-                    <li><a href="#cart" style={styles.link}>Cart</a></li>
+                    {/* <li><Link to='/' style={styles.link}>Home</Link></li>
+                    <li><Link to='/categories' style={styles.link}>Categories</Link></li>
+                    <li><Link to='/sign-up' style={styles.link}>Sign-up</Link></li>
+                    <li><Link to='/sell' style={styles.link}>Sell</Link></li>
+                    <li><Link to='/buy' style={styles.link}>Buy</Link></li>
+                    <li><Link to='/cart' style={styles.link}>Cart</Link></li>*/}
+                    <li><Link to ="/" style={styles.link}>Home</Link></li>
+                    <li><Link to ="/Orders" style={styles.link}>Orders</Link></li>
+                    <li><Link to ="/Inventory" style={styles.link}>Inventory</Link></li>  
                 </ul>
             </nav>
         </header>

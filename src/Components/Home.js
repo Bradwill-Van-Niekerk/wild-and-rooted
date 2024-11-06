@@ -8,6 +8,7 @@ import './Header';
 const Hero = () => {
   return (
     <section className="hero">
+      <img alt="Farmhouse Fare Logo" className="hero-logo"/>
       <div className="hero-content">
         <h1>Welcome to Farmhouse Fare</h1>
         <p>Your farm-to-table experience starts here!</p>

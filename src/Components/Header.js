@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import './Header.css'; // Add styles for header
-import logo from '../Assets/images/logo.jpeg'; // Go up one level from Components to src
+// import ''; // Add styles for header
+// import logo from '../Assets/images/logo.jpeg'; // Go up one level from Components to src
  // Adjust path as needed
 
 const Header = () => {
   return (
     <header className="header">
-      <img src='\src\Assets\images\logo.jpeg' alt="Farmhouse Fare Logo" className="logo" />
+      <img src='' alt="Farmhouse Fare Logo" className="logo" />
       <nav>
         <a href="#home">Home</a>
         <a href="#menu">Menu</a>

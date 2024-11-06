@@ -1,7 +1,13 @@
-
+import "../Pages-Staff-CSS/Inventory.css"
 
 function SideBar(){
-
+    return(
+        <>
+        <h3>
+            Index for the content
+        </h3>
+        </>
+    )
 }
 
 function Data(){
@@ -18,7 +24,9 @@ function Inventory(){
     return(
         <>
         <div className="InventoryBox1">
-
+            <h1>
+                Inventory
+            </h1>
         </div>
         <div className="InventoryBox2"> {/* Grid 1 */}
             <div className="InventoryBoxes1">
