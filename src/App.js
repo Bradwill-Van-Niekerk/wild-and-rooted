@@ -7,27 +7,21 @@ import Home from './Components/Home';
 
 
 import Orders from './Pages-Staff/Orders.js';
-// import Inventory from './Pages-Staff/Inventory.js'
-
 import Inventory from './Pages-Staff/Inventory.js'
-
-
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <Home/>
+      {/* <Navbar/> */}
       {/* <Inventory /> */}
-      <Orders/>
+      {/* <Orders/> */}
       <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path='/inventory' element={Inventory} />
-      {/* //   <Route path='/' element={} />
-      // <Route path='' element={} />
-      // <Route path='' element={} />
-      // <Route path='' element={} />
+        <Navbar />
+          <Routes>
+            <Route path='/' element={<Home/>} />
+            <Route path='/Inventory' element={<Inventory/>} />
+            <Route path='/Orders' element={<Orders/>} />
+      {/*// <Route path='' element={} />
       // <Route path='' element={} />
       // <Route path='' element={} />
       // <Route path='' element={} />
@@ -39,7 +33,8 @@ function App() {
       // <Route path='' element={} />
       // <Route path='' element={} />
       // <Route path='' element={} /> */}
-      </Routes>
+          </Routes>
+        {/* <Footer/> */}
       </BrowserRouter>
     </div>
   );

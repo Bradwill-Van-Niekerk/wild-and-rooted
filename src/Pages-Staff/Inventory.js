@@ -1,4 +1,4 @@
-
+import "../Pages-Staff-CSS/Inventory.css"
 
 function SideBar(){
 

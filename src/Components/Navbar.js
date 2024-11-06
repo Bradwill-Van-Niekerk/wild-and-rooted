@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     // if (user == null){
@@ -20,8 +20,10 @@ const Navbar = () => {
                     <li><Link to='/sign-up' style={styles.link}>Sign-up</Link></li>
                     <li><Link to='/sell' style={styles.link}>Sell</Link></li>
                     <li><Link to='/buy' style={styles.link}>Buy</Link></li>
-                    <li><Link to='/cart' style={styles.link}>Cart</Link></li>
-                    <li><Link to = '/inventory' style={styles.link}>inventory</Link></li> */}
+                    <li><Link to='/cart' style={styles.link}>Cart</Link></li>*/}
+                    <li><Link to ="/" style={styles.link}>Home</Link></li>
+                    <li><Link to ="/Orders" style={styles.link}>Orders</Link></li>
+                    <li><Link to ="/Inventory" style={styles.link}>Inventory</Link></li>  
                 </ul>
             </nav>
         </header>

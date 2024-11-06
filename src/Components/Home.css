@@ -38,7 +38,7 @@ header .logo h1 {
 
   /* Hero Section */
   .hero {
-    background: url('../Pages/media/healthy-restaurants-cover.jpg') no-repeat center center/cover;
+    /* background: url('../Pages/media/healthy-restaurants-cover.jpg') no-repeat center center/cover; */
     color: white;
     height: 100vh;
     display: flex;
