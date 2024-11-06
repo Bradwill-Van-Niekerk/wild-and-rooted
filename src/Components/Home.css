@@ -48,7 +48,7 @@ header .logo h1 {
     align-items: center;
     text-align: center;
     position: relative;
-    padding: 50px;
+    padding: 50px;  
   }
   
   .hero-content {
@@ -70,7 +70,7 @@ header .logo h1 {
     height: 100%;
     background-size: cover;
     background-position: center;
-  }
+}
 
   .hero h1 {
     font-size: 3rem;
