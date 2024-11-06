@@ -1,4 +1,4 @@
-function Header(){
+function Orders(){
     return(
         <>
         <div className="HomesBox1">
@@ -39,3 +39,5 @@ function Header(){
         </>
     )
 }
+
+export default Orders
