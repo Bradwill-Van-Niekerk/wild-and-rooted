@@ -1,14 +1,25 @@
 import React from 'react';
-import './Footer.css';
+import './Footer.css'; // Assuming the CSS is saved in Footer.css
 
 const Footer = () => {
-    return (
-      <footer className="footer">
-        <p>&copy; 2024 Farmhouse Fare. All Rights Reserved.</p>
-        <p>Follow us on social media!</p>
+  return (
+    <footer className="footer">
+      <div className="container">
+        <p>&copy; 2024 Farmhouse Fare. All rights reserved.</p>
         <div className="social-links">
-          <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            Facebook
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            Twitter
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            Instagram
+          </a>
         </div>
-      </footer>
-    );
-  };
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

@@ -4,6 +4,7 @@ import './Header';
 
 
 
+
 const Hero = () => {
   return (
     <section className="hero">
@@ -28,6 +29,7 @@ const About = () => {
           farm-to-table dining experience right to your plate. Whether it's a hearty
           breakfast or a cozy dinner, every dish is made with love and the freshest ingredients.
         </p>
+        <a href="#menu" className="btn">Learn More</a>
       </div>
     </section>
   );
@@ -52,6 +54,8 @@ const Testimonials = () => {
   );
 };
 
+
+    
 
 
 
