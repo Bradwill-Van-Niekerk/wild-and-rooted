@@ -24,6 +24,10 @@ const Contact = () => {
     console.log('Form submitted:', formData);
   };
 
+  const PopUp = () => {
+    alert("Your message was sent successfully");
+  };
+
   return (
     <section id="contact" className="contact">
       <div className="container">
@@ -59,7 +63,7 @@ const Contact = () => {
             required
           ></textarea>
 
-          <button type="submit" className="btn">Send Message</button>
+          <button type="submit" className="btn" onClick={PopUp}>Send Message</button>
         </form>
       </div>
     </section>
