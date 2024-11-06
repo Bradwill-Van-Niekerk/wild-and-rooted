@@ -16,7 +16,9 @@ function Orders(){
                     </h2>
                 </div>
                 <div className="HomesBoxes2">
-                
+                    <h3>
+                        all drinks or all starters or all mains or all desserts
+                    </h3>
                 </div>
             </div>
             <div className="HomesBoxe2">
@@ -26,7 +28,9 @@ function Orders(){
                     </h2>
                 </div>
                 <div className="HomesBoxes2">
-                
+                    <h2>
+                        1 item at a time
+                    </h2>
                 </div>
             </div>
             <div className="HomesBoxe3">
@@ -36,7 +40,9 @@ function Orders(){
                     </h2>
                 </div>
                 <div className="HomesBoxes2">
-                
+                    <h2>
+                        send a message to client that orders are ready
+                    </h2>
                 </div>
             </div>
         </div>

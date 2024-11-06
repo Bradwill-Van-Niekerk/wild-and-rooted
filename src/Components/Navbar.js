@@ -8,7 +8,7 @@ const Navbar = () => {
             <nav style={styles.nav}>
                 <div style={styles.logoContainer}>
                     <img
-                        src="/path/to/logo.png" 
+                        src="https://i.postimg.cc/XNPj7F9C/logo.jpg" 
                         alt="Farmhouse Fare Logo"
                         style={styles.logo}
                     />
