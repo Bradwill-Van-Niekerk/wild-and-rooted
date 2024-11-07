@@ -7,7 +7,7 @@ function OrderLayoutWaiting(){
 
     // Filter the data based on the search query
     const filteredData = OrderData.filter((items) =>
-        items.subject.toLowerCase().includes(query.toLowerCase())|| items.name.toLowerCase().includes(query.toLowerCase()) // Case-insensitive search
+        items.table.toLowerCase().includes(query.toLowerCase())|| items.drinks.toLowerCase().includes(query.toLowerCase()) // Case-insensitive search
     );
     return(
     <div>
@@ -25,7 +25,18 @@ function OrderLayoutWaiting(){
     {/* Display filtered results */}
     <div className="HomesBoxes2">
         {filteredData.map((items) => (
-            <></>
+            <>
+            <div className='Orders-Table'>
+                <div>
+                    <h2>
+                        {items.drinks}
+                    </h2>
+                </div>
+                <div>
+                    <button className='Orders-Button'/>
+                </div>
+            </div>
+            </>
 ))}
     </div>
 </div>)
@@ -35,7 +46,7 @@ function OrderLayoutInProgress(){
 
     // Filter the data based on the search query
     const filteredData = OrderData.filter((items) =>
-        items.subject.toLowerCase().includes(query.toLowerCase())|| items.name.toLowerCase().includes(query.toLowerCase()) // Case-insensitive search
+        items.table.toLowerCase().includes(query.toLowerCase())|| items.drinks.toLowerCase().includes(query.toLowerCase()) // Case-insensitive search
     );
     return(
     <div>
@@ -62,7 +73,7 @@ function OrderLayoutFinished(){
 
     // Filter the data based on the search query
     const filteredData = OrderData.filter((items) =>
-        items.subject.toLowerCase().includes(query.toLowerCase())|| items.name.toLowerCase().includes(query.toLowerCase()) // Case-insensitive search
+        items.table.toLowerCase().includes(query.toLowerCase())|| items.drinks.toLowerCase().includes(query.toLowerCase()) // Case-insensitive search
     );
     return(
     <div>
