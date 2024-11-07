@@ -19,19 +19,19 @@ const Food = () => {
             <img src="https://i.postimg.cc/xjMKmkmp/Roasted-Beet-Salad-with-Goat-Cheese-and-Arugula-1-of-3.jpg" alt="Seasonal Salad" />
             <h3>Seasonal Salad</h3>
             <p>R 80-100</p>
-            <Link to="/food" className="order-btn">Order now</Link>
+            <Link to="/food" className="order-btn">Buy Now</Link>
           </div>
           <div className="food-card">
             <img src="https://i.postimg.cc/66rv3ksD/R-2.jpg" alt="Vegetable Soup" />
             <h3>Vegetable Soup</h3>
             <p>R 60-80</p>
-            <Link to="/food" className="order-btn">Order now</Link>
+            <Link to="/food" className="order-btn">Buy Now</Link>
           </div>
           <div className="food-card">
             <img src="https://i.postimg.cc/cCtgdzSL/R-4.jpgg" alt="Vegetable Soup" />
             <h3>Bruschetta</h3>
             <p>R 60-80</p>
-            <Link to="/food" className="order-btn">Order now</Link>
+            <Link to="/food" className="order-btn">Buy Now</Link>
           </div>
         </div>
         
@@ -45,19 +45,19 @@ const Food = () => {
             <img src="https://i.postimg.cc/28TLdnSG/th.jpg" alt="Orange" />
             <h3>Roasted chicken</h3>
             <p>R 100-150</p>
-            <Link to="/food" className="order-btn">Order now</Link>
+            <Link to="/food" className="order-btn">Buy Now</Link>
           </div>
           <div className="food-card">
             <img src="https://i.postimg.cc/g03YsPKp/Vegetable-Spaghetti-Recipe-2-1200.jpg" alt="Roasted Root Vegetables" />
             <h3>Pasta</h3>
             <p>R 150-170</p>
-            <Link to="/food" className="order-btn">Order now</Link>
+            <Link to="/food" className="order-btn">Buy Now</Link>
           </div>
           <div className="food-card">
             <img src="https://i.postimg.cc/k4zPP1ss/OIP-3.jpg" alt="Wild Mushroom Soup" />
             <h3>Stuffed Acorn Squash:</h3>
             <p>R 100-120</p>
-            <Link to="/food" className="order-btn">Order now</Link>
+            <Link to="/food" className="order-btn">Buy Now</Link>
           </div>
         </div>
       </section>
@@ -70,19 +70,19 @@ const Food = () => {
             <img src="https://i.postimg.cc/1zFpK4Tz/R-3.jpg" alt="Chocolate Cake" />
             <h3>Honey and Lavender Ice Cream</h3>
             <p>R 50-70</p>
-            <Link to="/food" className="order-btn">Order now</Link>
+            <Link to="/food" className="order-btn">Buy Now</Link>
           </div>
           <div className="food-card">
             <img src="https://i.postimg.cc/zvQBMFHY/Roast-apples-pears-3.jpg" alt="Fruit Salad" />
             <h3>Baked Apples or Pears</h3>
             <p>R 40-60</p>
-            <Link to="/food" className="order-btn">Order now</Link>
+            <Link to="/food" className="order-btn">Buy Now</Link>
           </div>
           <div className="food-card">
             <img src="https://i.postimg.cc/jjjyGZLL/th-1.jpg" alt="Fruit Salad" />
             <h3>Peanut butter dessert</h3>
             <p>R 40-50</p>
-            <Link to="/food" className="order-btn">Order now</Link>
+            <Link to="/food" className="order-btn">Buy Now</Link>
           </div>
         </div>
       </section>

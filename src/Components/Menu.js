@@ -9,6 +9,7 @@ import fruitsImage from '../Assets/images/fruits.jpeg';
 
 const menuData = [
   {
+    route: "/food",
     image: foodImage,
     alt: "Fresh Organic Food",
     name: "Food",
@@ -16,6 +17,7 @@ const menuData = [
     link: "order.html"
   },
   {
+    route: "/vegs",
     image: vegetablesImage,
     alt: "Local Organic Vegetables",
     name: "Vegetables",
@@ -23,6 +25,7 @@ const menuData = [
     link: "order.html"
   },
   {
+    route: "/fruit",
     image: fruitsImage,
     alt: "Farm Fresh Fruits",
     name: "Fruit",
@@ -43,7 +46,7 @@ const Menu = () => {
             <div key={index} className="menu-item">
               <img src={item.image} alt={item.alt} />
               <h3>{item.name}</h3>
-              <Link to="/food" className="btn">Order now</Link>
+              <Link to= {item.route} className="btn">Order now</Link>
             </div>
           ))}
         </div>
