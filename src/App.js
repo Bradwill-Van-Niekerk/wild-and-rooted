@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react';
 import Navbar from './Components/Navbar.js'
 import Home from './Components/Home';
+import Food from './Pages/Food.js';
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 // import Logo from './Assets/images/logo.jpeg';
@@ -23,6 +24,7 @@ function App() {
         <Navbar />
           <Routes>
             <Route path='/' element={<Home/>} />
+            <Route path="/food" element={<Food />} />
             <Route path='/Inventory' element={<Inventory/>} />
             <Route path='/Orders' element={<Orders/>} />
             <Route path='/Orders' element={<Menu/>} />

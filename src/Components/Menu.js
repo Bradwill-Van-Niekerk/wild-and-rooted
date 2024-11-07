@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import menuBackground from '../Assets/images/menu-background.jpeg'; // Adjust the path according to your folder structure
 import foodImage from '../Assets/images/food.jpeg';
 import vegetablesImage from '../Assets/images/vegetables.jpeg';
@@ -42,7 +43,7 @@ const Menu = () => {
             <div key={index} className="menu-item">
               <img src={item.image} alt={item.alt} />
               <h3>{item.name}</h3>
-              <a href={item.link} className="btn">Order Now</a>
+              <Link to="/food" className="btn">Order now</Link>
             </div>
           ))}
         </div>
@@ -50,5 +51,7 @@ const Menu = () => {
     </section>
   );
 };
+
+
 
 export default Menu;
