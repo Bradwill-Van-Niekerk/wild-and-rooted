@@ -1,8 +1,8 @@
 import React from 'react';
 import './Home.css';
 import './Header';
-
-
+import Contact from '../Components/Contact';
+import Menu from './Menu';
 
 const Hero = () => {
   return (
@@ -17,7 +17,6 @@ const Hero = () => {
   );
 };
 
-
 const About = () => {
   return (
     <section id="about" className="about">
@@ -29,6 +28,7 @@ const About = () => {
           farm-to-table dining experience right to your plate. Whether it's a hearty
           breakfast or a cozy dinner, every dish is made with love and the freshest ingredients.
         </p>
+        <a href="#menu" className="btn">Learn More</a>
       </div>
     </section>
   );
@@ -54,6 +54,8 @@ const Testimonials = () => {
 };
 
 
+    
+
 
 
 //   return (
@@ -72,6 +74,8 @@ const Home = () => {
       <Hero />
       <About />
       <Testimonials />
+      <Menu/>
+      <Contact/>
       </> 
   
   )

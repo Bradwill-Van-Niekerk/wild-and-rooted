@@ -1,5 +1,101 @@
 import '../Pages-Staff-CSS/Orders.css'
+import { useState } from 'react';
+import { OrderData } from './TempData'
 
+function OrderLayoutWaiting(){
+    const [query, setQuery] = useState(""); // State to store search input
+
+    // Filter the data based on the search query
+    const filteredData = OrderData.filter((items) =>
+        items.table.toLowerCase().includes(query.toLowerCase())|| items.drinks.toLowerCase().includes(query.toLowerCase()) // Case-insensitive search
+    );
+    return(
+    <div>
+    <div className='HomesBoxes1'><h1>Waiting</h1>
+    {/* Search bar */}
+    <input
+        id='TexT1'
+        type="text"
+        placeholder="Search..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)} // Update query state on user input
+    />
+    <button type="button" id="clearButton1">Clear</button>
+    </div>
+    {/* Display filtered results */}
+    <div className="HomesBoxes2">
+        {filteredData.map((items) => (
+            <>
+            <div className='Orders-Table'>
+                <div>
+                    <h2>
+                        {items.drinks}
+                    </h2>
+                </div>
+                <div>
+                    <button className='Orders-Button'/>
+                </div>
+            </div>
+            </>
+))}
+    </div>
+</div>)
+}
+function OrderLayoutInProgress(){
+    const [query, setQuery] = useState(""); // State to store search input
+
+    // Filter the data based on the search query
+    const filteredData = OrderData.filter((items) =>
+        items.table.toLowerCase().includes(query.toLowerCase())|| items.drinks.toLowerCase().includes(query.toLowerCase()) // Case-insensitive search
+    );
+    return(
+    <div>
+    <div className='HomesBoxes1'><h1>In Progress</h1>
+    {/* Search bar */}
+    <input
+        className='TutorSearch'
+        type="text"
+        placeholder="Search..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)} // Update query state on user input
+    />
+    </div>
+    {/* Display filtered results */}
+    <div className="HomesBoxes2">
+        {filteredData.map((items) => (
+            <></>
+))}
+    </div>
+</div>)
+}
+function OrderLayoutFinished(){
+    const [query, setQuery] = useState(""); // State to store search input
+
+    // Filter the data based on the search query
+    const filteredData = OrderData.filter((items) =>
+        items.table.toLowerCase().includes(query.toLowerCase())|| items.drinks.toLowerCase().includes(query.toLowerCase()) // Case-insensitive search
+    );
+    return(
+    <div>
+    <div className='HomesBoxes1'><h1>Completed</h1>
+    {/* Search bar */}
+    <input
+        className='TutorSearch'
+        type="text"
+        placeholder="Search..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)} // Update query state on user input
+    />
+    </div>
+    {/* Display filtered results */}
+    <div className="HomesBoxes2">
+        {filteredData.map((items) => (
+            <>
+            </>
+))}
+    </div>
+</div>)
+}
 function Orders(){
     return(
         <>
@@ -10,40 +106,13 @@ function Orders(){
         </div>
         <div className="HomesBox2"> {/*grid 1 with 3 columns*/}
             <div className="HomesBoxe1">
-                <div className="HomesBoxes1">
-                    <h2>
-                        Waiting
-                    </h2>
-                </div>
-                <div className="HomesBoxes2">
-                    <h3>
-                        all drinks or all starters or all mains or all desserts
-                    </h3>
-                </div>
+                <OrderLayoutWaiting/>
             </div>
             <div className="HomesBoxe2">
-                <div className="HomesBoxes1">
-                    <h2>
-                        In Progress
-                    </h2>
-                </div>
-                <div className="HomesBoxes2">
-                    <h2>
-                        1 item at a time
-                    </h2>
-                </div>
+                <OrderLayoutInProgress/>
             </div>
             <div className="HomesBoxe3">
-                <div className="HomesBoxes1">
-                    <h2>
-                        Orders Going out
-                    </h2>
-                </div>
-                <div className="HomesBoxes2">
-                    <h2>
-                        send a message to client that orders are ready
-                    </h2>
-                </div>
+                <OrderLayoutFinished/>
             </div>
         </div>
         </>
