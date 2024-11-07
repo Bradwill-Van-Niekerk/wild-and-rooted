@@ -27,7 +27,14 @@ const Food = () => {
             <p>R 60-80</p>
             <Link to="/food" className="order-btn">Order now</Link>
           </div>
+          <div className="food-card">
+            <img src="https://i.postimg.cc/cCtgdzSL/R-4.jpgg" alt="Vegetable Soup" />
+            <h3>Bruschetta</h3>
+            <p>R 60-80</p>
+            <Link to="/food" className="order-btn">Order now</Link>
+          </div>
         </div>
+        
       </section>
 
       {/* Main Courses */}
@@ -69,6 +76,12 @@ const Food = () => {
             <img src="https://i.postimg.cc/zvQBMFHY/Roast-apples-pears-3.jpg" alt="Fruit Salad" />
             <h3>Baked Apples or Pears</h3>
             <p>R 40-60</p>
+            <Link to="/food" className="order-btn">Order now</Link>
+          </div>
+          <div className="food-card">
+            <img src="https://i.postimg.cc/jjjyGZLL/th-1.jpg" alt="Fruit Salad" />
+            <h3>Peanut butter dessert</h3>
+            <p>R 40-50</p>
             <Link to="/food" className="order-btn">Order now</Link>
           </div>
         </div>
