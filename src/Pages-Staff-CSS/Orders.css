@@ -2,6 +2,7 @@
     width: 100%;
     height: 5rem;
     border: 1px solid black;
+    text-align: center;
 }
 .HomesBox2{
     border: 1px solid black;
@@ -10,16 +11,24 @@
 }
 
 /*Titles*/
-.HomesBoxes1{
+.HomesBoxe1{
+    display: grid;
     width: 100%;
     border: 1px solid black;
     height: 5rem;
+    text-align: center;
+}
+.HomesBoxes1{
+    width: 100%;
+    border: 2px solid black;
+    height: 50rem;
 }
 /*Content*/
 .HomesBoxes2{
     width: 100%;
     height: 10rem auto;
     border: 1px solid black;
+    text-align: center;
 }
 .Orders-Table{
     display: grid;
@@ -30,4 +39,88 @@
     height: 3rem;
     border-radius: 3rem;
     margin-top: 1rem;
+}
+.OrdersHelp{
+    text-align: center;
+    display: flex;
+    position: fixed;
+    justify-content: center; /*Hori*/
+    align-items: center; /*Vert*/
+    z-index: 1000; /*keeps it fixed*/
+}
+.OrdersHeading{
+    font-size: 2rem;
+    text-decoration: underline;
+    margin-bottom: 1rem;
+}
+.OrdersText{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    border: 1px solid black;
+    border-radius: 3rem;
+    padding: 2rem;
+    background-color: white;
+    font-size: 1rem;
+    z-index: 1000; /*keeps it fixed*/
+}
+.Extrabtn{
+    margin-top: 1rem;
+    font-size: 1rem;
+    padding: 0.7rem;
+    border-radius: 2rem;
+    box-shadow: 2rem -1rem 1rem 2rem grey none;
+}
+.OrderHelpBtn{
+    display: flex;
+    justify-self: end;
+    font-size: 1rem;
+    padding: 0.7rem;
+    border-radius: 3rem;
+    position: fixed;
+    top: 40rem;
+    right: 2rem;
+    background-color: black;
+    box-shadow: 0 0 2rem #615858;
+    color: white;
+    z-index: 1000; /*keeps it fixed*/
+}
+.OrderAdds{
+    display: flex;
+    justify-content: center;
+}
+.OrderAddBtn{
+    display: flex;
+    font-size: 1rem;
+    padding: 0.7rem;
+    border-radius: 2rem;
+    color: white;
+    background-color: green;
+    box-shadow: 0 0 2rem #39e95f;
+    position: fixed;
+    top: 40rem;
+    z-index: 1000; /*keeps it fixed*/
+}
+.AddOrderBox{
+    text-align: center;
+    display: flex;
+    justify-content: center; /*Hori*/
+    align-items: center; /*Vert*/
+    z-index: 1000; /*keeps it fixed*/
+}
+.AddOrderText{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    border: 1px solid black;
+    border-radius: 3rem;
+    padding: 2rem;
+    background-color: white;
+    z-index: 1000; /*keeps it fixed*/
+    font-size: 1.2rem;
+    position: fixed;
+}
+textarea{
+    text-align: center;
+    background-color: white;
 }
