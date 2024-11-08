@@ -14,6 +14,7 @@ import Orders from './Pages-Staff/Orders.js';
 import Footer from './Components/Footer';
 import Menu from './Components/Menu.js';
 // import Inventory from './Pages-Staff/Inventory.js'
+import Vegetable from './Pages/vegetables.js'
 
 import Inventory from './Pages-Staff/Inventory.js'
 
@@ -28,6 +29,7 @@ function App() {
             <Route path='/Inventory' element={<Inventory/>} />
             <Route path='/Orders' element={<Orders/>} />
             <Route path='/Orders' element={<Menu/>} />
+            <Route path='/vegs' element={< Vegetable />} />
       {/*
       <Route path='' element={} />
       */}

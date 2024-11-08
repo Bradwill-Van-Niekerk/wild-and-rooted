@@ -1,0 +1,42 @@
+.vegetable-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.vegetable-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.vegetable-card {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 200px;
+  padding: 16px;
+  text-align: center;
+}
+
+.vegetable-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.vegetable-name {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.vegetable-description {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.vegetable-price {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #4caf50;
+}
