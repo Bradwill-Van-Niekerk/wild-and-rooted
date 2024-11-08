@@ -5,29 +5,30 @@
     text-align: center;
 }
 .HomesBox2{
-    border: 1px solid black;
     display: grid;
     grid-template-columns: 33% 34% 33%;
 }
 
 /*Titles*/
 .HomesBoxe1{
-    display: grid;
     width: 100%;
     border: 1px solid black;
     height: 5rem;
     text-align: center;
+    background-color: yellow;
 }
 .HomesBoxes1{
     width: 100%;
     border: 2px solid black;
-    height: 50rem;
+    height: 3rem;
+    background-color: blue;
 }
-/*Content*/
+/*Content - Tables*/
 .HomesBoxes2{
     width: 100%;
     height: 10rem auto;
     border: 1px solid black;
+    background-color: #39e95f;
     text-align: center;
 }
 .Orders-Table{
@@ -111,6 +112,7 @@
 .AddOrderText{
     display: flex;
     flex-direction: column;
+    top: 30%;
     width: 40%;
     border: 1px solid black;
     border-radius: 3rem;
@@ -123,4 +125,21 @@
 textarea{
     text-align: center;
     background-color: white;
+}
+.OrderBox{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: start; /*Horizontal shift*/
+    justify-items: start;
+}
+.OrderHeading{
+    text-decoration: underline;
+    font-size: 2rem;
+    display: flex;
+    align-self: center;
+}
+.OrdersLabel{
+    display: flex;
+    flex-direction: column;
 }
