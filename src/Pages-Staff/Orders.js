@@ -1,45 +1,46 @@
 import React, { useState } from 'react';
-import { OrderData } from './TempData'; // This would be a file containing the initial OrderData
-import '../Pages-Staff-CSS/Orders.css'
+import { OrderData } from './TempData'; // Assuming you have initial data here
 
-function OrderHelp(){
-    const [isOrdersOpen, setOrdersOpen] = useState(false);
+function OrderHelp() {
+  const [isHelpOpen, setHelpOpen] = useState(false);
 
-    const setOrdersOpenFalse = () =>{
-        setOrdersOpen(false)
-    }
-    const setOrdersOpenTrue = () =>{
-        setOrdersOpen(true)
-    }
-    return(
-        <>
-        {isOrdersOpen ? (
+  const setHelpOpenFalse = () => {
+    setHelpOpen(false);
+  };
+  const setHelpOpenTrue = () => {
+    setHelpOpen(true);
+  };
+
+  return (
+    <>
+      {isHelpOpen ? (
         <div className='OrdersHelp'>
-            <div className='OrdersHeading'>
-                <h3>
-                    Welcome
-                </h3>
-                <button onClick={setOrdersOpenTrue}>
-                    Close
-                </button>
-            </div>
-        </div>):(
-        <button onClick={setOrdersOpenFalse}>
-            <h3> Help </h3>
+          <div className='OrdersHeading'>
+            <h3>Help</h3>
+            <p><strong>To use the app, you can start by adding a new order by clicking the "add order" button.</strong></p>
+            <p>You can view and update orders by selecting them directly from the list. Inside the order, you can manually
+              change information associated with an order or update its status. However, note that you can quickly change the
+              status of an order by dragging it between the three different columns with your mouse.</p>
+            <button onClick={setHelpOpenFalse}>Close</button>
+          </div>
+        </div>
+      ) : (
+        <button onClick={setHelpOpenTrue}>
+          <h3>Help</h3>
         </button>
-        )}
-        </>
-    )
+      )}
+    </>
+  );
 }
 
-function AddOrder({ addOrder }) {
+function AddOrder({ addOrder, closeAddOrder }) {
   const [orderData, setOrderData] = useState({
     table: '1',
     drinks: '1',
     starter: '1',
     mainCourse: '1',
     dessert: '1',
-    ReviewContent: '1',
+    specialNote: '',
   });
 
   // Handle input changes
@@ -54,7 +55,7 @@ function AddOrder({ addOrder }) {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Create new order
     const newOrder = {
       ...orderData,
@@ -63,7 +64,7 @@ function AddOrder({ addOrder }) {
         mainCourse: orderData.mainCourse || '1',
         dessert: orderData.dessert || '1',
       },
-      id: OrderData.length + 1, // Incremental ID (you can generate this differently)
+      id: Date.now(), // Use Date.now() for a unique ID
     };
 
     // Add new order to the OrderData array (simulating this by calling the addOrder function)
@@ -88,8 +89,12 @@ function AddOrder({ addOrder }) {
             <h1>Add Order</h1>
           </div>
           <div>
+            {/* Close Button (X) */}
+            <button type="button" className='CloseOrder' onClick={closeAddOrder}>X</button>
+          </div>
+          <div>
             {/* Table number */}
-            <div OrdersLabel>
+            <div>
               <label>Table number</label>
               <select name="table" value={orderData.table} onChange={handleChange}>
                 <option value="1">1</option>
@@ -103,7 +108,7 @@ function AddOrder({ addOrder }) {
             </div>
 
             {/* Drinks */}
-            <div OrdersLabel>
+            <div>
               <label>Drinks/Beverages</label>
               <select name="drinks" value={orderData.drinks} onChange={handleChange}>
                 <option value="1">1</option>
@@ -117,7 +122,7 @@ function AddOrder({ addOrder }) {
             </div>
 
             {/* Starters */}
-            <div OrdersLabel>
+            <div>
               <label>Starter</label>
               <select name="starter" value={orderData.starter} onChange={handleChange}>
                 <option value="1">1</option>
@@ -131,7 +136,7 @@ function AddOrder({ addOrder }) {
             </div>
 
             {/* Main Course */}
-            <div OrdersLabel>
+            <div>
               <label>Main Course</label>
               <select name="mainCourse" value={orderData.mainCourse} onChange={handleChange}>
                 <option value="1">1</option>
@@ -145,7 +150,7 @@ function AddOrder({ addOrder }) {
             </div>
 
             {/* Desserts */}
-            <div OrdersLabel>
+            <div>
               <label>Desserts</label>
               <select name="dessert" value={orderData.dessert} onChange={handleChange}>
                 <option value="1">1</option>
@@ -181,61 +186,73 @@ function AddOrder({ addOrder }) {
 
 // Orders Component
 function Orders() {
-  const [orderList, setOrderList] = useState(OrderData); // Store orders in state
+  const [orderList, setOrderList] = useState(OrderData); // Initialize with OrderData
+  const [isAddOrderOpen, setAddOrderOpen] = useState(false); // Toggle AddOrder form
+  const [isHelpOpen, setHelpOpen] = useState(false); // Toggle Help
 
   // Add order function that updates state
   const addOrder = (newOrder) => {
-    //appends the new order to the previous orders
-    setOrderList((prevOrders) => [prevOrders, newOrder]);
+    setOrderList((prevOrders) => [...prevOrders, newOrder]);
+  };
+
+  // Function to close the Add Order form
+  const closeAddOrder = () => {
+    setAddOrderOpen(false);
   };
 
   return (
     <>
-        <div className="HomesBox1">
-            <h1>Orders</h1>
+      <div className="HomesBox1">
+        <h1>Orders</h1>
+      </div>
+
+      <div className="HomesBox2">
+        <div className="HomesBoxe1">
+          <div className="HomesBoxes1">
+            <h2>🤵 Ordered</h2>
+          </div>
+          <div className="HomesBoxes2">
+            {orderList.map((order) => (
+              <div key={order.id} className="OrderBox">
+                <h3 className='OrderHeading'>Table {order.table}</h3>
+                <p>Drinks: {order.drinks || 'N/A'}</p>
+                <p>Starters: {order.food?.starter || 'N/A'}</p>
+                <p>Main Course: {order.food?.mainCourse || 'N/A'}</p>
+                <p>Dessert: {order.food?.dessert || 'N/A'}</p>
+                <p>Special Requests: {order.specialNote || 'N/A'}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="HomesBox2">
-            <div className="HomesBoxe1">
-                <div className="HomesBoxes1">
-                    <h2>🤵 Ordered</h2>
-                </div>
-                <div className="HomesBoxes2">
-                {/* Render the orders in the second column */}
-                {orderList.map((order) => (
-                    <div key={order.id} className="OrderBox">
-                    <h3 className='OrderHeading'>Table {order.table}</h3>
-                    <p>Drinks: {order.drinks || 'N/A'}</p>
-                    <p>Starters: {order.food?.starter || 'N/A'}</p>
-                    <p>Main Course: {order.food?.mainCourse || 'N/A'}</p>
-                    <p>Dessert: {order.food?.dessert || 'N/A'}</p>
-                    <p>Special Requests: {order.specialNote || 'N/A'}</p>
-                    </div>
-                ))}
-                </div>
-            </div>
-
-            <div className="HomesBoxe2">
-                <div className="HomesBoxes1">
-                    <h2>👩‍🍳 Preparing</h2>
-                </div>
-                <div className="HomesBoxes2">
-
-                </div>
-            </div>
-
-            <div className="HomesBoxe3">
-                <h2>👩‍💼 Served</h2>
-            </div>
+        <div className="HomesBoxe2">
+          <div className="HomesBoxes1">
+            <h2>👩‍🍳 Preparing</h2>
+          </div>
+          <div className="HomesBoxes2">
+          </div>
         </div>
-        {/* Add Order Form */}
-        <button onClick={<AddOrder addOrder={addOrder} />}>
-                Add Order
-        </button>
-        <button onClick={<OrderHelp/>}>
-                Help
-        </button>
-            
+
+        <div className="HomesBoxes1">
+          <h2>👩‍💼 Served</h2>
+        </div>
+      </div>
+
+      {/* Add Order Form */}
+      {isAddOrderOpen && <AddOrder addOrder={addOrder} closeAddOrder={closeAddOrder} />}
+
+      {/* Toggle Help */}
+      <button onClick={() => setHelpOpen((prev) => !prev)}>
+        Help
+      </button>
+
+      {/* Help section */}
+      {isHelpOpen && <OrderHelp />}
+
+      {/* Add Order Button */}
+      <button onClick={() => setAddOrderOpen(true)}>
+        Add Order
+      </button>
     </>
   );
 }
