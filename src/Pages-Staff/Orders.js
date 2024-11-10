@@ -1,34 +1,23 @@
 import React, { useState } from 'react';
 import { OrderData } from './TempData'; // Assuming you have initial data here
+import '../Pages-Staff-CSS/Orders.css'
 
-function OrderHelp() {
-  const [isHelpOpen, setHelpOpen] = useState(false);
-
-  const setHelpOpenFalse = () => {
-    setHelpOpen(false);
-  };
-  const setHelpOpenTrue = () => {
-    setHelpOpen(true);
-  };
+function OrderHelp({ setHelpOpenFalse }) {
 
   return (
     <>
-      {isHelpOpen ? (
-        <div className='OrdersHelp'>
-          <div className='OrdersHeading'>
-            <h3>Help</h3>
-            <p><strong>To use the app, you can start by adding a new order by clicking the "add order" button.</strong></p>
-            <p>You can view and update orders by selecting them directly from the list. Inside the order, you can manually
-              change information associated with an order or update its status. However, note that you can quickly change the
-              status of an order by dragging it between the three different columns with your mouse.</p>
-            <button onClick={setHelpOpenFalse}>Close</button>
-          </div>
+      <div className='HelpBox'>
+        <div className='HelpText'>
+        <div>
+          <button type="button" className='CloseHelp' onClick={setHelpOpenFalse}>X</button>
         </div>
-      ) : (
-        <button onClick={setHelpOpenTrue}>
-          <h3>Help</h3>
-        </button>
-      )}
+          <h3 className='HelpHeading'>Help</h3>
+          <p><strong>To use the app, you can start by adding a new order by clicking the "add order" button.</strong>
+          <br/>You can view and update orders by selecting them directly from the list. Inside the order, you can manually
+            change information associated with an order or update its status. However, note that you can quickly change the
+            status of an order by dragging it between the three different columns with your mouse.</p>
+        </div>
+      </div>
     </>
   );
 }
@@ -89,8 +78,7 @@ function AddOrder({ addOrder, closeAddOrder }) {
             <h1>Add Order</h1>
           </div>
           <div>
-            {/* Close Button (X) */}
-            <button type="button" className='CloseOrder' onClick={closeAddOrder}>X</button>
+            <button type="button" className='OrderClose' onClick={closeAddOrder}>X</button>
           </div>
           <div>
             {/* Table number */}
@@ -175,7 +163,7 @@ function AddOrder({ addOrder, closeAddOrder }) {
             </div>
 
             <div>
-              <button type="submit">Submit Order</button>
+              <button className='AddOrdersBtn' type="submit">Submit Order</button>
             </div>
           </div>
         </form>
@@ -198,6 +186,10 @@ function Orders() {
   // Function to close the Add Order form
   const closeAddOrder = () => {
     setAddOrderOpen(false);
+  };
+
+  const setHelpOpenFalse = () => {
+    setHelpOpen(false);
   };
 
   return (
@@ -242,17 +234,26 @@ function Orders() {
       {isAddOrderOpen && <AddOrder addOrder={addOrder} closeAddOrder={closeAddOrder} />}
 
       {/* Toggle Help */}
-      <button onClick={() => setHelpOpen((prev) => !prev)}>
-        Help
-      </button>
+      <div className='ExtraBtnsGrid'>
+        <div className='OrdersBtn1'>
+          {!isHelpOpen && (
+            <button className='HelpBtn' onClick={() => setHelpOpen(true)}>
+              Help
+            </button>
+          )}
+        </div>
 
-      {/* Help section */}
-      {isHelpOpen && <OrderHelp />}
+        {isHelpOpen && <OrderHelp setHelpOpenFalse={setHelpOpenFalse} />}
 
-      {/* Add Order Button */}
-      <button onClick={() => setAddOrderOpen(true)}>
-        Add Order
-      </button>
+        {/* Add Order Button */}
+        <div className='OrdersBtn2'>
+          {!isAddOrderOpen && (
+            <button className='AddOrderBtn' onClick={() => setAddOrderOpen(true)}>
+              Add Order
+            </button>
+          )}
+        </div>
+      </div>
     </>
   );
 }
