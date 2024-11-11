@@ -26,10 +26,10 @@ function AddOrder({ addOrder, closeAddOrder }) {
   const [orderData, setOrderData] = useState({
     table: '1',
     drinks: '1',
-    starter: '1',
-    mainCourse: '1',
-    dessert: '1',
-    specialNote: '',
+    starter: 'Seasonal Salad',
+    mainCourse: 'Roasted Chicken',
+    dessert: 'Honey and Lavender Icecream',
+    specialNote: 'None',
   });
 
   // Handle input changes
