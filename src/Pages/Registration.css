@@ -1,0 +1,138 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  /* Box 1 - Header Section */
+  .RegistrationBox1 {
+    border: 1px solid #ccc;
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
+    margin: 50px auto 0;
+    padding: 2rem;
+    max-width: 800px;
+    text-transform: capitalize;
+    font-size: 2.5rem;
+    text-align: center;
+    background-color: #4caf50;
+    color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Box 2 - Form Section */
+  .RegistrationBox2 {
+    border: 1px solid #ddd;
+    border-bottom-left-radius: 45px;
+    border-bottom-right-radius: 45px;
+    margin: 0 auto;
+    padding: 2rem;
+    max-width: 800px;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Submit Button */
+  .RegistrationSubmitBtn {
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    border-radius: 2rem;
+    color: white;
+    background-color: #2196f3;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .RegistrationSubmitBtn:hover {
+    background-color: #0b79d0;
+    cursor: pointer;
+  }
+  
+  /* Labels and Inputs */
+  label {
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .RegistrationInput {
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 12px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .RegistrationInput:focus {
+    border-color: #6c63ff;
+    outline: none;
+  }
+  
+  /* Question Section */
+  .q-afterinput {
+    font-size: 1rem;
+    text-transform: capitalize;
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  /* Button Group */
+  .btns {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 20px;
+  }
+  
+  .btn {
+    text-align: center;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 8px;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #584ce6;
+    cursor: pointer;
+  }
+  
+  .btns a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  /* Footer Text */
+  .last-in-box {
+    padding: 20px;
+    border-top: 2px solid #e0e0e0;
+    margin: 0 auto;
+    max-width: 700px;
+    text-align: center;
+  }
+  
+  /* Container for Questions */
+  .container-questions {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  /* Questions for Signup */
+  .question {
+    font-size: 1.1rem;
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+  }
+  

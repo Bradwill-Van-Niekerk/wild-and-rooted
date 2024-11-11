@@ -3,6 +3,8 @@ import './App.css';
 import React from 'react';
 import Navbar from './Components/Navbar.js'
 import Home from './Components/Home';
+import Registration from './Pages/Registration.js';
+import Login from './Pages/Login.js';
 import Food from './Pages/Food.js';
 import Carts from './Pages/carts.js'
 // eslint-disable-next-line no-unused-vars
@@ -28,6 +30,8 @@ function App() {
         <Navbar />
           <Routes>
             <Route path='/' element={<Home/>} />
+            <Route path="/registration" element={<Registration />} />
+            <Route path="/Login" element={<Login />} />
             <Route path="/food" element={<Food />} />
             <Route path='/Inventory' element={<Inventory/>} />
             <Route path='/Orders' element={<Orders/>} />

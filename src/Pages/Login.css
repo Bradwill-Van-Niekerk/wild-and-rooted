@@ -1,0 +1,152 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Login Header Box */
+.LoginBox1 {
+    border-radius: 15px 15px 0 0;
+    margin: 50px auto 0;
+    padding: 2rem;
+    max-width: 500px;
+    text-transform: capitalize;
+    font-size: 2rem;
+    text-align: center;
+    background-color: #6c63ff;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Container */
+.box2 {
+    border: 1px solid #ddd;
+    border-radius: 0 0 15px 15px;
+    margin: 0 auto;
+    max-width: 500px;
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Labels */
+label {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+/* Input Fields */
+.LoginInput {
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 1rem;
+    font-size: 1rem;
+    width: 90%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 0.5rem auto 1.5rem;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.LoginInput:focus {
+    border-color: #6c63ff;
+    outline: none;
+}
+
+/* Text below Input Fields */
+.q-afterinput1 {
+    margin-top: -10px;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    text-transform: capitalize;
+    text-align: center;
+    color: #666;
+}
+
+.q-afterinput2 {
+    border-top: 1px solid #ddd;
+    margin: 20px auto;
+    font-size: 1rem;
+    text-transform: capitalize;
+    text-align: center;
+    color: #666;
+    padding-top: 10px;
+    max-width: 400px;
+}
+
+/* Submit Button */
+.LoginSubmitBtn {
+    font-size: 1.3rem;
+    border-radius: 25px;
+    padding: 0.8rem 2rem;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.LoginSubmitBtn:hover {
+    cursor: pointer;
+    background-color: #584ce6;
+    transform: translateY(-3px);
+}
+
+/* Button Container */
+.btns {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1.5rem;
+}
+
+/* Additional Buttons */
+.btn {
+    text-align: center;
+    padding: 10px 30px;
+    font-size: 1rem;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #6c63ff;
+    color: white;
+    cursor: pointer;
+}
+
+/* Links in Buttons */
+.btns a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Flex Container for Labels and Inputs */
+.LogFlexy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Styles for Smaller Screens */
+@media (max-width: 768px) {
+    .LoginBox1, .box2 {
+        margin-left: 20px;
+        margin-right: 20px;
+        width: auto;
+    }
+    
+    .LoginInput {
+        width: 100%;
+    }
+
+    .q-afterinput2 {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
