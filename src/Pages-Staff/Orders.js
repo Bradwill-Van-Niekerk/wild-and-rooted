@@ -63,10 +63,10 @@ function AddOrder({ addOrder, closeAddOrder }) {
     setOrderData({
       table: '1',
       drinks: '1',
-      starter: '1',
-      mainCourse: '1',
-      dessert: '1',
-      specialNote: '',
+      starter: 'Seasonal Salad',
+      mainCourse: 'Roasted Chicken',
+      dessert: 'Honey and Lavender Icecream',
+      specialNote: 'None',
     });
   };
 
@@ -82,9 +82,9 @@ function AddOrder({ addOrder, closeAddOrder }) {
           </div>
           <div>
             {/* Table number */}
-            <div>
+            <div className='OrderLists'>
               <label>Table number</label>
-              <select name="table" value={orderData.table} onChange={handleChange}>
+              <select className='DropDownOrdersList' name="table" value={orderData.table} onChange={handleChange}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -96,9 +96,9 @@ function AddOrder({ addOrder, closeAddOrder }) {
             </div>
 
             {/* Drinks */}
-            <div>
+            <div className='OrderLists'>
               <label>Drinks/Beverages</label>
-              <select name="drinks" value={orderData.drinks} onChange={handleChange}>
+              <select className='DropDownOrdersList' name="drinks" value={orderData.drinks} onChange={handleChange}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -110,49 +110,37 @@ function AddOrder({ addOrder, closeAddOrder }) {
             </div>
 
             {/* Starters */}
-            <div>
+            <div className='OrderLists'>
               <label>Starter</label>
-              <select name="starter" value={orderData.starter} onChange={handleChange}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
+              <select className='DropDownOrdersList' name="starter" value={orderData.starter} onChange={handleChange}>
+                <option value="1">Seasonal Salad</option>
+                <option value="2">Vegetable Soup</option>
+                <option value="3">Bruschetta</option>
               </select>
             </div>
 
             {/* Main Course */}
-            <div>
+            <div className='OrderLists'>
               <label>Main Course</label>
-              <select name="mainCourse" value={orderData.mainCourse} onChange={handleChange}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
+              <select className='DropDownOrdersList' name="mainCourse" value={orderData.mainCourse} onChange={handleChange}>
+                <option value="1">Roasted Chicken</option>
+                <option value="2">Pasta</option>
+                <option value="3">Stuffed Acorn Squash</option>
               </select>
             </div>
 
             {/* Desserts */}
-            <div>
+            <div className='OrderLists'>
               <label>Desserts</label>
-              <select name="dessert" value={orderData.dessert} onChange={handleChange}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
+              <select className='DropDownOrdersList' name="dessert" value={orderData.dessert} onChange={handleChange}>
+                <option value="1">Honey and Lavender Icecream</option>
+                <option value="2">Baked Apples or Pears</option>
+                <option value="3">Peanut Butter Dessert</option>
               </select>
             </div>
 
             {/* Review Content */}
-            <div>
+            <div className='OrderLists'>
               <label className='OrdersLabel'>Food preference</label>
               <textarea
                 name="specialNote"
@@ -191,7 +179,25 @@ function Orders() {
   const setHelpOpenFalse = () => {
     setHelpOpen(false);
   };
-
+  const DisplayOrders = () =>{
+    return (
+      <>
+                  {orderList.map((order) => (
+                <div key={order.id} className="OrderBox">
+                  <h3 className='OrderHeading'>Table {order.table}</h3>
+                  <button className='OrderArrowBtn'>=> </button>
+                  <div className='OrdersList'>
+                    <p>Drinks: {order.drinks || 'N/A'}</p>
+                    <p>Starters: {order.food?.starter || 'N/A'}</p>
+                    <p>Main Course: {order.food?.mainCourse || 'N/A'}</p>
+                    <p>Dessert: {order.food?.dessert || 'N/A'}</p>
+                    <p>Special Requests: {order.specialNote || 'None'}</p>
+                  </div>
+        </div>
+        ))}
+      </>
+    )
+  }
   return (
     <>
       <div className="HomesBox1">
@@ -204,16 +210,9 @@ function Orders() {
             <h2>🤵 Ordered</h2>
           </div>
           <div className="HomesBoxes2">
-            {orderList.map((order) => (
-              <div key={order.id} className="OrderBox">
-                <h3 className='OrderHeading'>Table {order.table}</h3>
-                <p>Drinks: {order.drinks || 'N/A'}</p>
-                <p>Starters: {order.food?.starter || 'N/A'}</p>
-                <p>Main Course: {order.food?.mainCourse || 'N/A'}</p>
-                <p>Dessert: {order.food?.dessert || 'N/A'}</p>
-                <p>Special Requests: {order.specialNote || 'N/A'}</p>
-              </div>
-            ))}
+            {/*the layout for the table */}
+            {/* calls the table */}
+            <DisplayOrders/>
           </div>
         </div>
 

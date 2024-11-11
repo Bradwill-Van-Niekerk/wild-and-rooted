@@ -4,6 +4,9 @@ import React from 'react';
 import Navbar from './Components/Navbar.js'
 import Home from './Components/Home';
 import Food from './Pages/Food.js';
+import Login from './Pages-Staff/Login.js';
+import Register from './Pages-Staff/Register.js';
+
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 // import Logo from './Assets/images/logo.jpeg';
@@ -11,7 +14,7 @@ import Food from './Pages/Food.js';
 
 
 import Orders from './Pages-Staff/Orders.js';
-import Footer from './Components/Footer';
+
 import Menu from './Components/Menu.js';
 // import Inventory from './Pages-Staff/Inventory.js'
 import Vegetable from './Pages/vegetables.js'
@@ -32,11 +35,12 @@ function App() {
             <Route path='/Orders' element={<Menu/>} />
             <Route path='/vegs' element={< Vegetable />} />
             <Route path='/fruit' element={<Fruits/>} />
+            <Route path='/Login' element={<Login/>} />
+            <Route path='/Register' element={<Register/>}/>
       {/*
       <Route path='' element={} />
       */}
           </Routes>
-        <Footer/>
       </BrowserRouter>
     </div>
   );

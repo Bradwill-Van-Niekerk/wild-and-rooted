@@ -3,6 +3,7 @@ import './Home.css';
 import './Header';
 import Contact from '../Components/Contact';
 import Menu from './Menu';
+import Footer from '../Components/Footer.js';
 
 const Hero = () => {
   return (
@@ -76,6 +77,7 @@ const Home = () => {
       <Testimonials />
       <Menu/>
       <Contact/>
+      <Footer/>
       </> 
   
   )
