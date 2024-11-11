@@ -1,7 +1,10 @@
-import React from "react";
+import React,{ useContext } from "react";
 import "./Fruits.css"; // Use a CSS file for consistent styling
+import { CartContext } from '../Pages/cartContext';
 
 const Fruits = () => {
+  const { addToCart } = useContext(CartContext);
+
   const fruitCategories = {
     "Citrus Fruits": [
       {
@@ -82,6 +85,9 @@ const Fruits = () => {
                 <h3 className="fruit-name">{fruit.name}</h3>
                 <p className="fruit-description">{fruit.description}</p>
                 <p className="fruit-price">{fruit.price}</p>
+                <button className="btn" onClick={() => addToCart(fruit)}>
+                                Add to Cart
+                </button>
               </div>
             ))}
           </div>

@@ -1,7 +1,7 @@
 // Food.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Food.css'; // Ensure to import the CSS file
+import './Food.css'; 
 
 const Food = () => {
   return (
