@@ -21,7 +21,6 @@ const Navbar = () => {
                     <li><Link to='/Cart' style={styles.link}>Cart</Link></li>
                     <li><Link to='/Registration' style={styles.link}>Register</Link></li>
                     <li><Link to='/Login' style={styles.link}>Login</Link></li>
-                    <li><Link to='/Login' style={styles.link}>Login</Link></li>
                     <li><Link to ="/Orders" style={styles.link}>Orders</Link></li>
                     <li><Link to ="/Inventory" style={styles.link}>Inventory</Link></li>  
                 </ul>

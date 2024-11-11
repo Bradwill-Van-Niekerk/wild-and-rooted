@@ -6,8 +6,8 @@ import Home from './Components/Home';
 import Registration from './Pages/Registration.js';
 import Login from './Pages/Login.js';
 import Food from './Pages/Food.js';
-import Login from './Pages-Staff/Login.js';
-import Register from './Pages-Staff/Register.js';
+// import Login from './Pages-Staff/Login.js';
+// import Register from './Pages-Staff/Register.js';
 import Carts from './Pages/carts.js'
 
 // eslint-disable-next-line no-unused-vars
@@ -34,7 +34,6 @@ function App() {
           <Routes>
             <Route path='/' element={<Home/>} />
             <Route path="/registration" element={<Registration />} />
-            <Route path="/Login" element={<Login />} />
             <Route path="/food" element={<Food />} />
             <Route path='/Inventory' element={<Inventory/>} />
             <Route path='/Orders' element={<Orders/>} />
@@ -42,7 +41,7 @@ function App() {
             <Route path='/vegs' element={< Vegetable />} />
             <Route path='/fruit' element={<Fruits/>} />
             <Route path='/Login' element={<Login/>} />
-            <Route path='/Register' element={<Register/>}/>
+            {/*<Route path='/Register' element={<Register/>}/> */}
             <Route path='/carts' element={<Carts/>} />
       {/*
       <Route path='' element={} />

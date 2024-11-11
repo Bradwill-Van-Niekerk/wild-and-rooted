@@ -33,10 +33,10 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className='LoginMainBox'>
       <h2 className="LoginBox1">Sign In</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="box2">
+      <div className="box2">
+        <form onSubmit={handleSubmit}>
           <label className='LogFlexy'>Username:</label>
           <input
             className='LoginInput'
@@ -51,18 +51,18 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        <h3 className="last-in-box">
-          By clicking Continue or Sign up, you agree to Farmhouse terms of use and Privacy Policy
-        </h3>
-        </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        {success && <p style={{ color: 'green' }}>Login successful!</p>}
+          <h3 className="last-in-box">
+            By clicking Continue or Sign up, you agree to Farmhouse terms of use and Privacy Policy
+          </h3>
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          {success && <p style={{ color: 'green' }}>Login successful!</p>}
+        </form>
         <div className="btns">
-              <button type="submit" className="LoginSubmitBtn" id="btn-next">
-                Submit
-              </button>
+          <button type="submit" className="LoginSubmitBtn" id="btn-next">
+            Submit
+          </button>
         </div>
-      </form>
+      </div>
     </div>
   );
 };
