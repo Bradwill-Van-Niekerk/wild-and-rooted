@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./vegetables.css";
 
 const Vegetable = () => {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (vegetable) => {
+    setCart((prevCart) => [...prevCart, vegetable]);
+    alert(`${vegetable.name} has been added to the cart.`);
+  };
+
   const vegetableCategories = {
     "Root Vegetables": [
       {
@@ -82,6 +89,9 @@ const Vegetable = () => {
                 <h3 className="vegetable-name">{veg.name}</h3>
                 <p className="vegetable-description">{veg.description}</p>
                 <p className="vegetable-price">{veg.price}</p>
+                <button onClick={() => addToCart(veg)} className="buy-button">
+                  Buy
+                </button>
               </div>
             ))}
           </div>
