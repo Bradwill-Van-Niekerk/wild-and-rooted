@@ -57,7 +57,7 @@ const Login = () => {
         </div>
         {error && <p style={{ color: 'red' }}>{error}</p>}
         {success && <p style={{ color: 'green' }}>Login successful!</p>}
-        <div className="btns">
+        <div className="btn1">
               <button type="submit" className="LoginSubmitBtn" id="btn-next">
                 Submit
               </button>

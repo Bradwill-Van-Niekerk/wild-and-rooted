@@ -1,9 +1,13 @@
-import React,{ useContext } from "react";
-import "./Fruits.css"; // Use a CSS file for consistent styling
-import { CartContext } from '../Pages/cartContext';
+import React, { useState } from 'react';
+import './Fruits.css'; // Use a CSS file for consistent styling
 
 const Fruits = () => {
-  const { addToCart } = useContext(CartContext);
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (fruit) => {
+    setCart((prevCart) => [...prevCart, fruit]);
+    alert(`${fruit.name} has been added to the cart.`);
+  };
 
   const fruitCategories = {
     "Citrus Fruits": [
@@ -18,20 +22,34 @@ const Fruits = () => {
         id: 2,
         name: "Lemon",
         description: "Tangy lemons, perfect for zest and fresh lemonade.",
-        price: "R18 per kg",
+        price: "$1.50 per lb",
+        image: "https://res.cloudinary.com/dvv9fvblr/image/fetch/f_jpg,w_350/https://res.cloudinary.com/dvv9fvblr/image/upload/v1695068248/ouvt3k6bknrekxeolfwg.jpg",
+      },
+      {
+        id: 3,
+        name: "Lemon",
+        description: "Tangy lemons, perfect for zest and fresh lemonade.",
+        price: "$1.50 per lb",
         image: "https://res.cloudinary.com/dvv9fvblr/image/fetch/f_jpg,w_350/https://res.cloudinary.com/dvv9fvblr/image/upload/v1695068248/ouvt3k6bknrekxeolfwg.jpg",
       },
     ],
     "Berries": [
       {
-        id: 3,
+        id: 4,
         name: "Strawberry",
         description: "Sweet, fresh strawberries, great for snacks or desserts.",
         price: "$2.50 per lb",
         image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh-Fo56ZTfOsfMS3d-treBKc-NIvPlrdUa2PvWA7kReHB4WGJIppuiYodgGhBboVkYxqPxpyM5CSAmMJ1IA6fakQecM-qP3cj_vKZRTQXkdKguKWDKUv_6y2lpjPRWbyHyZAIEz-l8LXCQ/s1600/cameron+highlands+strawberry+farm.jpg",
       },
       {
-        id: 4,
+        id: 5,
+        name: "Blueberry",
+        description: "Delicious, antioxidant-rich blueberries.",
+        price: "$3.00 per lb",
+        image: "https://images.squarespace-cdn.com/content/v1/5bfec493cef372cbb6d8f389/af057257-7c91-4922-8418-8c65046c5f35/48B0684A-BCFD-4F6A-88A7-0FE8E2C9C95A.jpeg?format=2500w",
+      },
+      {
+        id: 6,
         name: "Blueberry",
         description: "Delicious, antioxidant-rich blueberries.",
         price: "$3.00 per lb",
@@ -40,14 +58,21 @@ const Fruits = () => {
     ],
     "Tropical Fruits": [
       {
-        id: 5,
+        id: 8,
         name: "Pineapple",
         description: "Tropical, sweet pineapple, perfect for snacking.",
         price: "$2.00 each",
         image: "https://www.castlefarmbishton.co.uk/wp-content/uploads/2021/03/fresh-pineapple-sliced-on-chopping-board.jpeg",
       },
       {
-        id: 6,
+        id: 7,
+        name: "Mango",
+        description: "Ripe and juicy mangoes, perfect for smoothies.",
+        price: "$1.80 each",
+        image: "http://batungbacalfarms.com/wp-content/uploads/2020/03/received_1297602220628516.jpeg",
+      },
+      {
+        id: 8,
         name: "Mango",
         description: "Ripe and juicy mangoes, perfect for smoothies.",
         price: "$1.80 each",
@@ -56,14 +81,21 @@ const Fruits = () => {
     ],
     "Stone Fruits": [
       {
-        id: 7,
+        id: 9,
         name: "Peach",
         description: "Sweet, juicy peaches perfect for snacking.",
         price: "$1.80 per lb",
         image: "https://c.stocksy.com/a/2IH400/z9/1019778.jpg",
       },
       {
-        id: 8,
+        id: 10,
+        name: "Cherry",
+        description: "Fresh, ripe cherries, great for summer desserts.",
+        price: "$4.00 per lb",
+        image: "https://watermark.lovepik.com/photo/20211120/large/lovepik-fresh-cherry-picture-picture_500421002.jpg",
+      },
+      {
+        id: 11,
         name: "Cherry",
         description: "Fresh, ripe cherries, great for summer desserts.",
         price: "$4.00 per lb",
@@ -74,10 +106,14 @@ const Fruits = () => {
 
   return (
     <div className="fruit-container">
-      <h1>Our Fresh Fruits</h1>
+      <header className="fruit-header">
+        <h1>Our Fresh Fruits</h1>
+        <div className="cart-icon">🛒 {cart.length} items</div>
+      </header>
+
       {Object.entries(fruitCategories).map(([category, fruits]) => (
-        <div key={category} className="fruit-category">
-          <h2 className="category-title">{category}</h2>
+        <section key={category} className="fruit-category">
+          <h2>{category}</h2>
           <div className="fruit-cards">
             {fruits.map((fruit) => (
               <div key={fruit.id} className="fruit-card">
@@ -85,13 +121,13 @@ const Fruits = () => {
                 <h3 className="fruit-name">{fruit.name}</h3>
                 <p className="fruit-description">{fruit.description}</p>
                 <p className="fruit-price">{fruit.price}</p>
-                <button className="btn" onClick={() => addToCart(fruit)}>
-                                Add to Cart
+                <button onClick={() => addToCart(fruit)} className="order-btn">
+                  Buy Now
                 </button>
               </div>
             ))}
           </div>
-        </div>
+        </section>
       ))}
     </div>
   );

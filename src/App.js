@@ -4,7 +4,6 @@ import React from 'react';
 import Navbar from './Components/Navbar.js'
 import Home from './Components/Home';
 import Registration from './Pages/Registration.js';
-import Login from './Pages/Login.js';
 import Food from './Pages/Food.js';
 import Login from './Pages-Staff/Login.js';
 import Register from './Pages-Staff/Register.js';
