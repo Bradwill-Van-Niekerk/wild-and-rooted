@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import './App.css';
 import React from 'react';
 import Navbar from './Components/Navbar.js'
 import Home from './Components/Home';
 import Food from './Pages/Food.js';
+import About from './Components/About.js';
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 // import Logo from './Assets/images/logo.jpeg';
@@ -26,6 +28,7 @@ function App() {
         <Navbar />
           <Routes>
             <Route path='/' element={<Home/>} />
+            <Route path='/about' element={<About/>} />
             <Route path="/food" element={<Food />} />
             <Route path='/Inventory' element={<Inventory/>} />
             <Route path='/Orders' element={<Orders/>} />
