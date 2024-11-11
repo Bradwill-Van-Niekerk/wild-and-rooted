@@ -4,6 +4,7 @@ import React from 'react';
 import Navbar from './Components/Navbar.js'
 import Home from './Components/Home';
 import Food from './Pages/Food.js';
+import Carts from './Pages/carts.js'
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 // import Logo from './Assets/images/logo.jpeg';
@@ -21,6 +22,7 @@ import Fruits from './Pages/Fruits.js';
 
 function App() {
   return (
+   
     <div className="App">
       <BrowserRouter>
         <Navbar />
@@ -32,6 +34,8 @@ function App() {
             <Route path='/Orders' element={<Menu/>} />
             <Route path='/vegs' element={< Vegetable />} />
             <Route path='/fruit' element={<Fruits/>} />
+            <Route path='/carts' element={<Carts/>} />
+
       {/*
       <Route path='' element={} />
       */}
@@ -39,6 +43,7 @@ function App() {
         <Footer/>
       </BrowserRouter>
     </div>
+   
   );
 }
 

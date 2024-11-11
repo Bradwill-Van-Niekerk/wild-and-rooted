@@ -10,6 +10,7 @@
   .menu .container {
     max-width: 1200px;
     margin: 0 auto;
+    
   }
   
   .menu h2 {
@@ -49,7 +50,7 @@
   
   .menu-item img {
     width: 100%;
-    height: auto;
+    height: 50%;
     border-radius: 8px;
     margin-bottom: 20px;
   }
@@ -81,5 +82,10 @@
   }
   
   /* Responsive styles */
-  @media (max-width)
+  @media (max-width: 768px) {
+    .menu-item {
+      width: 100%; /* Stack the items on smaller screens */
+    }
+  }
+  
   
