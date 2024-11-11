@@ -14,7 +14,7 @@ function Data(){
     return(
         <>
         <div className="">
-            shjdkahsdkajhdks
+            
         </div>
         </>
     )

@@ -207,7 +207,7 @@
 .AddOrderText{
     display: flex;
     flex-direction: column;
-    top: 30%;
+    top: 15%;
     width: 40%;
     border: 1px solid black;
     border-radius: 3rem;
@@ -222,6 +222,7 @@ textarea{
     background-color: white;
 }
 .AddOrdersBtn{
+    margin-top: 2rem;
     border-radius: 2rem;
     border: 1px solid black;
     font-size: 1rem;
@@ -257,4 +258,35 @@ textarea{
     color: black;
     border: none; 
     border-radius: 3rem; 
+}
+
+.OrderArrowBtn{
+    border: 1px solid black;
+    border-radius: 10rem;
+    font-size: 1.7rem;
+    padding: 0.5rem;
+    display: flex;
+    align-self: end;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    background-color: black;
+    color: white;
+}
+.OrdersList{
+    display: flex;
+    flex-direction: column;
+    margin-top: -4rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+}
+.OrderLists{
+    display: flex;
+    flex-direction: column;
+}
+.DropDownOrdersList{
+    width: auto auto;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    font-size: 1rem;
 }
