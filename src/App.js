@@ -6,6 +6,7 @@ import Home from './Components/Home';
 import Food from './Pages/Food.js';
 import Login from './Pages-Staff/Login.js';
 import Register from './Pages-Staff/Register.js';
+import Carts from './Pages/carts.js'
 
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
@@ -24,6 +25,7 @@ import Fruits from './Pages/Fruits.js';
 
 function App() {
   return (
+   
     <div className="App">
       <BrowserRouter>
         <Navbar />
@@ -37,12 +39,14 @@ function App() {
             <Route path='/fruit' element={<Fruits/>} />
             <Route path='/Login' element={<Login/>} />
             <Route path='/Register' element={<Register/>}/>
+            <Route path='/carts' element={<Carts/>} />
       {/*
       <Route path='' element={} />
       */}
           </Routes>
       </BrowserRouter>
     </div>
+   
   );
 }
 
