@@ -34,7 +34,7 @@ const Navbar = () => {
             {isDropdownOpen && (
               <ul style={styles.dropdownMenu}>
                 <li><Link to='/Categories/Fruits' style={styles.dropdownItem}>Fruits</Link></li>
-                <li><Link to='/Categories/vegetables' style={styles.dropdownItem}>Vegetables</Link></li>
+                <li><Link to='/Categories/Vegs' style={styles.dropdownItem}>Vegetables</Link></li>
                 <li><Link to='/Categories/Food' style={styles.dropdownItem}>Food</Link></li>
               </ul>
             )}

@@ -27,18 +27,17 @@ function App() {
           <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/about' element={<About/>} />
-            <Route path="/registration" element={<Registration />} />
-            <Route path="/Food" element={<Food />} />
+
             <Route path='/Inventory' element={<Inventory/>} />
             <Route path='/Orders' element={<Orders/>} />
             <Route path='/Menu' element={<Menu/>} />
-            <Route path='/Vegs' element={< Vegetable />} />
-            <Route path='/Fruits' element={<Fruits/>} />
+
             <Route path='/Login' element={<Login/>} />
+            <Route path="/registration" element={<Registration />} />
+
             <Route path="/Categories/Fruits" element={<Fruits/>} />
             <Route path="/Categories/Food" element={<Food/>} />
-        
-      
+            <Route path='/Categories/Vegs' element={< Vegetable />} />
             <Route path='/carts' element={<Carts/>} />
       {/*
       <Route path='' element={} />
