@@ -8,17 +8,7 @@ import Registration from './Pages/Registration.js';
 import Login from './Pages/Login'
 import Food from './Pages/Food.js';
 import About from './Components/About.js';
-
-// import Login from './Pages-Staff/Login.js';
-// import Register from './Pages-Staff/Register.js';
 import Carts from './Pages/carts.js'
-
-// eslint-disable-next-line no-unused-vars
-// eslint-disable-next-line no-unused-vars
-// import Logo from './Assets/images/logo.jpeg';
-// import Logo from './Pages/media/logo.jpeg';
-
-
 import Orders from './Pages-Staff/Orders.js';
 
 import Menu from './Components/Menu.js';
@@ -42,7 +32,7 @@ function App() {
             <Route path="/registration" element={<Registration />} />
             <Route path='/Inventory' element={<Inventory/>} />
             <Route path='/Orders' element={<Orders/>} />
-            <Route path='/Orders' element={<Menu/>} />
+            <Route path='/Menu' element={<Menu/>} />
             <Route path='/Vegs' element={< Vegetable />} />
             <Route path='/Fruits' element={<Fruits/>} />
             <Route path='/Login' element={<Login/>} />

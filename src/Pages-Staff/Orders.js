@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { OrderData } from './TempData'; // Assuming you have initial data here
 import '../Pages-Staff-CSS/Orders.css'
-import { closestCorners, DndContext } from '@dnd-kit/core';
+import { closestCorners, DndContext, KeyboardSensor, PointerSensor, TouchSensor, useSensor } from '@dnd-kit/core';
+import { arrayMove,sortableKeyboardCoordinates } from '@dnd-kit/sortable';
+import Column from './Components/Column';
+import Input from './Components/Input';
+import { useSensors } from '@dnd-kit/core';
 
 function OrderHelp({ setHelpOpenFalse }) {
 
@@ -23,218 +26,89 @@ function OrderHelp({ setHelpOpenFalse }) {
   );
 }
 
-function AddOrder({ addOrder, closeAddOrder }) {
-  const [orderData, setOrderData] = useState({
-    table: '1',
-    drinks: '1',
-    starter: 'Seasonal Salad',
-    mainCourse: 'Roasted Chicken',
-    dessert: 'Honey and Lavender Icecream',
-    specialNote: 'None',
-  });
-
-  // Handle input changes
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setOrderData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Create new order
-    const newOrder = {
-      ...orderData,
-      food: {
-        starter: orderData.starter || '1',
-        mainCourse: orderData.mainCourse || '1',
-        dessert: orderData.dessert || '1',
-      },
-      id: Date.now(), // Use Date.now() for a unique ID
-    };
-
-    // Add new order to the OrderData array (simulating this by calling the addOrder function)
-    addOrder(newOrder);
-
-    // Optionally reset the form after submission
-    setOrderData({
-      table: '1',
-      drinks: '1',
-      starter: 'Seasonal Salad',
-      mainCourse: 'Roasted Chicken',
-      dessert: 'Honey and Lavender Icecream',
-      specialNote: 'None',
-    });
-  };
-
-  return (
-    <div className='AddOrderBox'>
-      <div className='AddOrderText'>
-        <form onSubmit={handleSubmit}>
-          <div className='AddOrderHeading'>
-            <h1>Add Order</h1>
-          </div>
-          <div>
-            <button type="button" className='OrderClose' onClick={closeAddOrder}>X</button>
-          </div>
-          <div>
-            {/* Table number */}
-            <div className='OrderLists'>
-              <label>Table number</label>
-              <select className='DropDownOrdersList' name="table" value={orderData.table} onChange={handleChange}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-              </select>
-            </div>
-
-            {/* Drinks */}
-            <div className='OrderLists'>
-              <label>Drinks/Beverages</label>
-              <select className='DropDownOrdersList' name="drinks" value={orderData.drinks} onChange={handleChange}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-              </select>
-            </div>
-
-            {/* Starters */}
-            <div className='OrderLists'>
-              <label>Starter</label>
-              <select className='DropDownOrdersList' name="starter" value={orderData.starter} onChange={handleChange}>
-                <option value="1">Seasonal Salad</option>
-                <option value="2">Vegetable Soup</option>
-                <option value="3">Bruschetta</option>
-              </select>
-            </div>
-
-            {/* Main Course */}
-            <div className='OrderLists'>
-              <label>Main Course</label>
-              <select className='DropDownOrdersList' name="mainCourse" value={orderData.mainCourse} onChange={handleChange}>
-                <option value="1">Roasted Chicken</option>
-                <option value="2">Pasta</option>
-                <option value="3">Stuffed Acorn Squash</option>
-              </select>
-            </div>
-
-            {/* Desserts */}
-            <div className='OrderLists'>
-              <label>Desserts</label>
-              <select className='DropDownOrdersList' name="dessert" value={orderData.dessert} onChange={handleChange}>
-                <option value="1">Honey and Lavender Icecream</option>
-                <option value="2">Baked Apples or Pears</option>
-                <option value="3">Peanut Butter Dessert</option>
-              </select>
-            </div>
-
-            {/* Review Content */}
-            <div className='OrderLists'>
-              <label className='OrdersLabel'>Food preference</label>
-              <textarea
-                name="specialNote"
-                value={orderData.specialNote}
-                onChange={handleChange}
-                placeholder="Any comments or special requests?"
-              ></textarea>
-            </div>
-
-            <div>
-              <button className='AddOrdersBtn' type="submit">Submit Order</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-}
-
-function Column({ tasks}){
-  return (
-  <div className=''>
-    {tasks.map((task) => (
-      <div key={task.id}>
-        {task.title}
-        min 5
-      </div> 
-    ))}
-  </div>)
-}
-
 // Orders Component
 function Orders() {
-  const [orderList, setOrderList] = useState(OrderData); // Initialize with OrderData
-  const [isAddOrderOpen, setAddOrderOpen] = useState(false); // Toggle AddOrder form
   const [isHelpOpen, setHelpOpen] = useState(false); // Toggle Help
-
-  // Add order function that updates state
-  const addOrder = (newOrder) => {
-    setOrderList((prevOrders) => [...prevOrders, newOrder]);
-  };
-
-  // Function to close the Add Order form
-  const closeAddOrder = () => {
-    setAddOrderOpen(false);
-  };
-
+  
   const setHelpOpenFalse = () => {
     setHelpOpen(false);
   };
-  const DisplayOrders = () =>{
-    return (
-      <>
-        {orderList.map((order) => (
-          <div key={order.id} className="OrderBox">
-          <h3 className='OrderHeading'>Table {order.table}</h3>
-          <button className='OrderArrowBtn'>=> </button>
-          <div className='OrdersList'>
-            <p>Drinks: {order.drinks || 'N/A'}</p>
-            <p>Starters: {order.food?.starter || 'N/A'}</p>
-            <p>Main Course: {order.food?.mainCourse || 'N/A'}</p>
-            <p>Dessert: {order.food?.dessert || 'N/A'}</p>
-            <p>Special Requests: {order.specialNote || 'None'}</p>
-          </div>
-        </div>
-        ))}
-      </>
-    )
-  }
 
-  const [tasks, setTasks] = useState(
-    [ {id: 1, title: "Add test"},
-      {id: 2, title: "to the"},
-      {id: 3, title: "other test"},
-    ]
-  )
+  const [columns, setColumns] = useState({
+    ordered: [ {id: 1, title: "Pizza"},
+      {id: 2, title: "Steak"},
+      {id: 3, title: "24 Wings"},
+    ],
+    preparing: [],
+    served:[]
+  })
+
+  const addTask = (title) => {
+    setColumns(prevColumns => ({
+      ...prevColumns,
+      ordered: [...prevColumns.ordered, { id: Date.now(), title }]
+    }));
+  };
+
+  const getTaskPosition = (id, column) => columns[column].findIndex(task => task.id === id)
+
+  const handleDragEnd = event => {
+    const {active, over} = event;
+
+    if(active.id === over.id) return; //no change if the items dropped in the same place
+
+    const activeColumn = active.data.current.column;
+    const overColumn = over.data.current.column;
+
+    if (activeColumn === overColumn) {
+      // If dragged within the same column, reorder tasks
+      const columnTasks = columns[activeColumn];
+      const originalPosition = getTaskPosition(active.id, activeColumn);
+      const newPosition = getTaskPosition(over.id, activeColumn);
+      
+      setColumns(prevColumns => ({
+        ...prevColumns,
+        [activeColumn]: arrayMove(columnTasks, originalPosition, newPosition)
+      }));
+    } else {
+      // Move task between columns
+      const sourceTasks = columns[activeColumn];
+      const targetTasks = columns[overColumn];
+      const sourceIndex = getTaskPosition(active.id, activeColumn);
+
+      // Remove the item from source column and add it to target column
+      const movedTask = sourceTasks[sourceIndex];
+      sourceTasks.splice(sourceIndex, 1);
+      targetTasks.push(movedTask);
+
+      setColumns(prevColumns => ({
+        ...prevColumns,
+        [activeColumn]: sourceTasks,
+        [overColumn]: targetTasks
+      }));
+    }
+  }
+    const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(TouchSensor),
+    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
+  );
   return (
     <>
     
       <div className="HomesBox1">
         <h1>Orders</h1>
       </div>
-
-      <div className="HomesBox2">
-        
+      <div className="HomesBox2">     
           <div className="HomesBoxe1">
             <div className="HomesBoxes1">
               <h2>🤵 Ordered</h2>
             </div>
             <div className="HomesBoxes2">
-              {/*the layout for the table */}
-              {/* calls the table */}
-                <DisplayOrders/>
+            <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
+              <Input onSubmit={addTask} />
+              <Column tasks={columns.ordered} columnName="ordered" />
+            </DndContext>
             </div>
           </div>
 
@@ -243,19 +117,22 @@ function Orders() {
               <h2>👩‍🍳 Preparing</h2>
             </div>
             <div className="HomesBoxes2">
+              <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
+                <Column tasks={columns.preparing} columnName="preparing" />
+              </DndContext>
             </div>
           </div>
-
-          <div className="HomesBoxes1">
-            <h2>👩‍💼 Served</h2>
+          <div className="HomesBoxe3">
+            <div className="HomesBoxes1">
+              <h2>👩‍💼 Served</h2>
+            </div> 
+            <div className="HomesBoxes2">
+              <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
+                <Column tasks={columns.served} columnName="served" />
+              </DndContext>
+            </div> 
           </div>
-        <DndContext collisionDetection={closestCorners}>
-          <Column tasks={tasks}/>
-        </DndContext>
       </div>
-
-      {/* Add Order Form */}
-      {isAddOrderOpen && <AddOrder addOrder={addOrder} closeAddOrder={closeAddOrder} />}
 
       {/* Toggle Help */}
       <div className='ExtraBtnsGrid'>
@@ -269,17 +146,10 @@ function Orders() {
 
         {isHelpOpen && <OrderHelp setHelpOpenFalse={setHelpOpenFalse} />}
 
-        {/* Add Order Button */}
-        <div className='OrdersBtn2'>
-          {!isAddOrderOpen && (
-            <button className='AddOrderBtn' onClick={() => setAddOrderOpen(true)}>
-              Add Order
-            </button>
-          )}
-        </div>
       </div>
     </>
   );
 }
+
 
 export default Orders;
