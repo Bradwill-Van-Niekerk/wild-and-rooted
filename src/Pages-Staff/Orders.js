@@ -36,14 +36,14 @@ function Orders() {
 
   const [columns, setColumns] = useState({
     ordered: [ {id: 1, title: "Pizza"},
-      {id: 2, title: "Steak"},
+      {id: 2, table: "", drinks: "", starter: "", main: ""},
       {id: 3, title: "24 Wings"},
     ],
     preparing: [],
     served:[]
   })
 
-  const addTask = (title) => {
+  const addTask = (table, drinks, starters, main, dessert) => {
     setColumns(prevColumns => ({
       ...prevColumns,
       ordered: [...prevColumns.ordered, { id: Date.now(), title }]
