@@ -93,6 +93,14 @@ function Orders() {
     useSensor(TouchSensor),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
   );
+
+  // eslint-disable-next-line no-unused-vars
+  const [tasks, setTasks] = useState(
+    [ {id: 1, title: "Add test"},
+      {id: 2, title: "to the"},
+      {id: 3, title: "other test"},
+    ]
+  )
   return (
     <>
     

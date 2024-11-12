@@ -111,14 +111,17 @@ header .logo h1 {
   .about h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    color: #f9f9f9;
   }
   
   .about p {
-    font-size: 1.1rem;
+    font-size: 1.7rem;
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.8;
     font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f9f9f9;
   }
   .about .btn{
     background-color: #0f111894; /* Tomato color */
@@ -154,13 +157,13 @@ header .logo h1 {
   }
   
   .testimonial p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-style: italic;
     margin-bottom: 15px;
   }
   
   .testimonial h4 {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #ff6347; /* Tomato color */
   }
@@ -190,67 +193,67 @@ header .logo h1 {
 
 /* Menu.css */
 .menu {
-    background-image: url('/src/Assets/images/menu-background.jpeg'); /* Path to your background image */
-    background-size: cover; /* Cover the entire section */
-    background-position: center center; /* Center the image */
-    padding: 40px 20px;
-    color: white;
-  }
-  
-  .menu h2 {
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 20px;
-  }
-  
-  .menu p {
-    text-align: center;
-    font-size: 1.2em;
-    margin-bottom: 30px;
-  }
-  
-  .menu-list {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-    gap: 20px;
-  }
-  
+  background-image: url('/src/Assets/images/menu-background.jpeg'); /* Path to your background image */
+  background-size: cover; /* Cover the entire section */
+  background-position: center center; /* Center the image */
+  padding: 40px 20px;
+  color: white;
+}
+
+.menu h2 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.menu p {
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.menu-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  gap: 20px;
+}
+
+.menu-item {
+  width: 30%;
+  background-color: rgba(0, 0, 0, 0.5); /* Slight overlay for better text visibility */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.menu-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.menu-item h3 {
+  margin-top: 10px;
+  font-size: 1.5em;
+}
+
+.btn {
+  padding: 15px 25px;
+  background-color: #ff6347;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
   .menu-item {
-    width: 30%;
-    background-color: rgba(0, 0, 0, 0.5); /* Slight overlay for better text visibility */
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+    width: 100%; /* Stack the items on smaller screens */
   }
-  
-  .menu-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  .menu-item h3 {
-    margin-top: 10px;
-    font-size: 1.5em;
-  }
-  
-  .btn {
-    padding: 15px 25px;
-    background-color: #ff6347;
-    color: white;
-    text-decoration: none;
-    font-size: 1.2em;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 10px;
-  }
-  
-  @media (max-width: 768px) {
-    .menu-item {
-      width: 100%; /* Stack the items on smaller screens */
-    }
-  }
+}
   
 
   /* Contact Section */

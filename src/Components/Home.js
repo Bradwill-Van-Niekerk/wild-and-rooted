@@ -4,6 +4,7 @@ import './Header';
 import Contact from '../Components/Contact';
 import { Link } from 'react-router-dom';
 import Menu from './Menu';
+import Carts from '../Pages/carts.js';
 import Footer from '../Components/Footer.js';
 
 const Hero = () => {
@@ -85,7 +86,7 @@ const Home = () => {
 }
 
 
-export default Home
+export default Home;
 
 
 
