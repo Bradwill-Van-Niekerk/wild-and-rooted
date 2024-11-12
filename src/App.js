@@ -8,16 +8,15 @@ import Registration from './Pages/Registration.js';
 import Login from './Pages/Login';
 import Food from './Pages/Food.js';
 import About from './Components/About.js';
+import CartProvider from './Pages/cartContext.js';
 // import Login from './Pages-Staff/Login.js';
 // import Register from './Pages-Staff/Register.js';
-import Carts from './Pages/carts.js'
+import Cart from './Pages/Cart.js'
 //import Fruits from './Pages/Fruits.js';
-
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 // import Logo from './Assets/images/logo.jpeg';
 // import Logo from './Pages/media/logo.jpeg';
-
 
 import Orders from './Pages-Staff/Orders.js';
 
@@ -30,8 +29,8 @@ import Fruits from './Pages/Fruits.js';
 
 function App() {
   return (
-   
-    <div className="App">
+    <CartProvider>
+       <div className="App">
       <BrowserRouter>
         <Navbar />
           <Routes>
@@ -39,12 +38,10 @@ function App() {
             <Route path='/' element={<Home/>} />
             <Route path='/about' element={<About/>} />
             <Route path="/registration" element={<Registration />} />
-            <Route path='/' element={<Home/>} />
             <Route path='/about' element={<About/>} />
             <Route path="/registration" element={<Registration />} />
             <Route path='/about' element={<About/>} />
             <Route path="/registration" element={<Registration />} />
-
             <Route path="/food" element={<Food />} />
             <Route path='/Inventory' element={<Inventory/>} />
             <Route path='/Orders' element={<Orders/>} />
@@ -54,15 +51,17 @@ function App() {
             <Route path='/Login' element={<Login/>} />
             <Route path="/Categories/Fruits" element={<Fruits/>} />
             <Route path="/Categories/Food" element={<Food/>} />
-        
-      
-            <Route path='/carts' element={<Carts/>} />
+            <Route path='/Cart' element={<Cart/>} />
       {/*
       <Route path='' element={} />
       */}
           </Routes>
       </BrowserRouter>
     </div>
+
+    </CartProvider>
+   
+   
    
   );
 }

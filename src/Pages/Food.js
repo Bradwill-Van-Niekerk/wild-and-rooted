@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from './cartContext';
 import './Food.css';
 
 const Food = () => {
-  const [cart, setCart] = useState([]);
-
-  const addToCart = (foodItem) => {
-    setCart((prevCart) => [...prevCart, foodItem]);
-    alert(`${foodItem.name} has been added to the cart.`);
-  };
+  const { cart, addToCart } = useContext(CartContext);
 
   const foodCategories = {
     "Seasonal Salads and Starters": [
@@ -31,7 +27,7 @@ const Food = () => {
         name: "Bruschetta",
         description: "Toasted bread topped with tomatoes and basil.",
         price: "R 60-80",
-        image: "https://i.postimg.cc/cCtgdzSL/R-4.jpgg",
+        image: "https://i.postimg.cc/cCtgdzSL/R-4.jpg",
       },
     ],
     "Main Courses": [
@@ -86,7 +82,9 @@ const Food = () => {
     <div className="food-container">
       <header className="food-header">
         <h1>Our Delicious Food</h1>
-        <div className="cart-icon">🛒 {cart.length} items</div>
+        <Link to="/Cart" className="cart-icon">
+          🛒 {cart.length} items
+        </Link>
       </header>
 
       {Object.entries(foodCategories).map(([category, foods]) => (
