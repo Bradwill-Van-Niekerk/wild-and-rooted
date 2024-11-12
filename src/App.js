@@ -5,7 +5,7 @@ import React from 'react';
 import Navbar from './Components/Navbar.js'
 import Home from './Components/Home';
 import Registration from './Pages/Registration.js';
-import Login from './Pages/Login.js';
+import Login from './Pages/Login'
 import Food from './Pages/Food.js';
 import About from './Components/About.js';
 
@@ -39,6 +39,7 @@ function App() {
             <Route path='/about' element={<About/>} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/Food" element={<Food />} />
+            <Route path="/registration" element={<Registration />} />
             <Route path='/Inventory' element={<Inventory/>} />
             <Route path='/Orders' element={<Orders/>} />
             <Route path='/Orders' element={<Menu/>} />

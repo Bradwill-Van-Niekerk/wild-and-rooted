@@ -64,7 +64,7 @@ label {
     font-size: 1rem;
     text-transform: capitalize;
     text-align: center;
-    color: #666;
+    color: #6c63ff;
 }
 
 .q-afterinput2 {
@@ -73,7 +73,7 @@ label {
     font-size: 1rem;
     text-transform: capitalize;
     text-align: center;
-    color: #666;
+    color: #6c63ff;
     padding-top: 10px;
     max-width: 400px;
 }
@@ -96,7 +96,7 @@ label {
 }
 
 /* Button Container */
-.btns {
+.btn1 {
     display: flex;
     justify-content: space-evenly;
     margin-top: 1.5rem;
