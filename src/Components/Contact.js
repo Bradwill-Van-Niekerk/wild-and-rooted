@@ -20,21 +20,22 @@ const Contact = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you can handle sending form data (e.g., to a server)
     console.log('Form submitted:', formData);
+    PopUp(); // Show popup after submission
   };
 
+  // PopUp function
   const PopUp = () => {
     alert("Your message was sent successfully");
   };
 
   return (
-    <section id="contact" className="contact">
-      <div className="container">
-        <h2>Contact Us</h2>
-        <p>If you have any questions, feel free to reach out to us. We're here to help!</p>
-        <form id="contact-form" onSubmit={handleSubmit}>
-          <label htmlFor="name">Your Name</label>
+    <section id="contact" style={styles.contactSection}>
+      <div style={styles.container}>
+        <h2 style={styles.header}>Contact Us</h2>
+        <p style={styles.paragraph}>If you have any questions, feel free to reach out to us. We're here to help!</p>
+        <form id="contact-form" onSubmit={handleSubmit} style={styles.form}>
+          <label htmlFor="name" style={styles.label}>Your Name</label>
           <input
             type="text"
             id="name"
@@ -42,9 +43,10 @@ const Contact = () => {
             value={formData.name}
             onChange={handleInputChange}
             required
+            style={styles.input}
           />
 
-          <label htmlFor="email">Your Email</label>
+          <label htmlFor="email" style={styles.label}>Your Email</label>
           <input
             type="email"
             id="email"
@@ -52,22 +54,82 @@ const Contact = () => {
             value={formData.email}
             onChange={handleInputChange}
             required
+            style={styles.input}
           />
 
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message" style={styles.label}>Message</label>
           <textarea
             id="message"
             name="message"
             value={formData.message}
             onChange={handleInputChange}
             required
+            style={styles.textarea}
           ></textarea>
 
-          <button type="submit" className="btn" onClick={PopUp}>Send Message</button>
+          <button type="submit" style={styles.button}>Send Message</button>
         </form>
       </div>
     </section>
   );
+};
+
+// Inline styles for the component
+const styles = {
+  contactSection: {
+    padding: '40px 0',
+    backgroundColor: '#f9f9f9',
+    textAlign: 'center',
+  },
+  container: {
+    maxWidth: '600px',
+    margin: '0 auto',
+    padding: '20px',
+    backgroundColor: '#fff',
+    borderRadius: '8px',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  },
+  header: {
+    fontSize: '24px',
+    marginBottom: '10px',
+  },
+  paragraph: {
+    fontSize: '16px',
+    marginBottom: '20px',
+    color: '#666',
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '15px',
+  },
+  label: {
+    fontSize: '14px',
+    color: '#333',
+    textAlign: 'left',
+  },
+  input: {
+    padding: '10px',
+    fontSize: '16px',
+    borderRadius: '4px',
+    border: '1px solid #ccc',
+  },
+  textarea: {
+    padding: '10px',
+    fontSize: '16px',
+    borderRadius: '4px',
+    border: '1px solid #ccc',
+    height: '100px',
+  },
+  button: {
+    padding: '10px 20px',
+    fontSize: '16px',
+    color: '#fff',
+    backgroundColor: '#333',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+  },
 };
 
 export default Contact;

@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import './Header';
 import Contact from '../Components/Contact';
+import { Link } from 'react-router-dom';
 import Menu from './Menu';
 import Footer from '../Components/Footer.js';
 
@@ -29,7 +30,7 @@ const About = () => {
           farm-to-table dining experience right to your plate. Whether it's a hearty
           breakfast or a cozy dinner, every dish is made with love and the freshest ingredients.
         </p>
-        <a href="#menu" className="btn">Learn More</a>
+        <Link to="/about" className="btn">Learn More</Link>
       </div>
     </section>
   );
