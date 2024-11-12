@@ -5,15 +5,14 @@ import React from 'react';
 import Navbar from './Components/Navbar.js'
 import Home from './Components/Home';
 import Registration from './Pages/Registration.js';
+import Login from './Pages/Login'
 import Food from './Pages/Food.js';
-<<<<<<< HEAD
 import About from './Components/About.js';
-=======
 // import Login from './Pages-Staff/Login.js';
 // import Register from './Pages-Staff/Register.js';
 import Carts from './Pages/carts.js'
 
->>>>>>> 08eb45537a83b0b288b533d81e898f3ead981422
+
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 // import Logo from './Assets/images/logo.jpeg';
@@ -36,12 +35,9 @@ function App() {
       <BrowserRouter>
         <Navbar />
           <Routes>
-            <Route path='/' element={<Home/>} />
-<<<<<<< HEAD
+  
             <Route path='/about' element={<About/>} />
-=======
             <Route path="/registration" element={<Registration />} />
->>>>>>> 08eb45537a83b0b288b533d81e898f3ead981422
             <Route path="/food" element={<Food />} />
             <Route path='/Inventory' element={<Inventory/>} />
             <Route path='/Orders' element={<Orders/>} />
