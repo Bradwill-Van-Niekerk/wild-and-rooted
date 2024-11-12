@@ -9,7 +9,7 @@ import fruitsImage from '../Assets/images/fruits.jpeg';
 
 const menuData = [
   {
-    route: "/food",
+    route: "/Food",
     image: foodImage,
     alt: "Fresh Organic Food",
     name: "Food",
@@ -17,7 +17,7 @@ const menuData = [
     link: "order.html"
   },
   {
-    route: "/vegs",
+    route: "/Vegs",
     image: vegetablesImage,
     alt: "Local Organic Vegetables",
     name: "Vegetables",
@@ -25,7 +25,7 @@ const menuData = [
     link: "order.html"
   },
   {
-    route: "/fruit",
+    route: "/Fruits",
     image: fruitsImage,
     alt: "Farm Fresh Fruits",
     name: "Fruit",

@@ -37,12 +37,21 @@ const Navbar = () => {
           >
             <Link to='/Categories' className={`link ${location.pathname === '/Categories' ? 'active' : ''}`}>Categories</Link>
             {isDropdownOpen && (
+<<<<<<< HEAD
   <ul className="dropdown-menu">
     <li><Link to='/Categories/Fruits' className="dropdown-item">Fruits</Link></li>
     <li><Link to='/Categories/vegetables' className="dropdown-item">Vegetables</Link></li>
     <li><Link to='/Categories/Food' className="dropdown-item">Food</Link></li>
   </ul>
 )}
+=======
+              <ul style={styles.dropdownMenu}>
+                <li><Link to='/Categories/Fruits' style={styles.dropdownItem}>Fruits</Link></li>
+                <li><Link to='/Categories/Vegs' style={styles.dropdownItem}>Vegetables</Link></li>
+                <li><Link to='/Categories/Food' style={styles.dropdownItem}>Food</Link></li>
+              </ul>
+            )}
+>>>>>>> 328d9c887374566383464fce979cb1912bc7decc
           </li>
           <li><Link to='/Buy' className={`link ${location.pathname === '/Buy' ? 'active' : ''}`}>Buy</Link></li>
           <li>

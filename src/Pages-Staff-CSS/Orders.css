@@ -290,3 +290,15 @@ textarea{
     text-align: center;
     font-size: 1rem;
 }
+
+.CheckboxOr{
+    width: 2rem;
+    height: 2rem;
+}
+
+.OrderItems{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    border: 1px solid grey;
+}
