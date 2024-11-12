@@ -37,30 +37,32 @@ const Login = () => {
       <h2 className="LoginBox1">Sign In</h2>
       <div className="box2">
         <form onSubmit={handleSubmit}>
-          <label className='LogFlexy'>Username:</label>
-          <input
-            className='LoginInput'
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <label className='LogFlexy'>Password:</label>
-          <input
-            className='LoginInput'
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <h3 className="last-in-box">
-            By clicking Continue or Sign up, you agree to Farmhouse terms of use and Privacy Policy
-          </h3>
-          {error && <p style={{ color: 'red' }}>{error}</p>}
-          {success && <p style={{ color: 'green' }}>Login successful!</p>}
+            <label className='LogFlexy'>Username:</label>
+            <input
+              className='LoginInput'
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <label className='LogFlexy'>Password:</label>
+            <input
+              className='LoginInput'
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
         </form>
+        <h3 className="last-in-box">
+          By clicking Continue or Sign up, you agree to Farmhouse terms of use and Privacy Policy
+        </h3>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        {success && <p style={{ color: 'green' }}>Login successful!</p>}
         <div className="btns">
           <button type="submit" className="LoginSubmitBtn" id="btn-next">
             Submit
           </button>
+        
+
         </div>
       </div>
     </div>
