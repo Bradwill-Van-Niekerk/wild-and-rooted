@@ -5,7 +5,7 @@ import React from 'react';
 import Navbar from './Components/Navbar.js'
 import Home from './Components/Home';
 import Registration from './Pages/Registration.js';
-import Login from './Pages/Login'
+import Login from './Pages/Login';
 import Food from './Pages/Food.js';
 import About from './Components/About.js';
 // import Login from './Pages-Staff/Login.js';
@@ -35,7 +35,11 @@ function App() {
       <BrowserRouter>
         <Navbar />
           <Routes>
+
             <Route path='/' element={<Home/>} />
+            <Route path='/' element={<Home/>} />
+            <Route path='/about' element={<About/>} />
+            <Route path="/registration" element={<Registration />} />
             <Route path='/about' element={<About/>} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/food" element={<Food />} />
