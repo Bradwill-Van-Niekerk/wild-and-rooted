@@ -1,152 +1,105 @@
-/* Global Styles */
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-}
-
-/* Login Header Box */
-.LoginBox1 {
-    border-radius: 15px 15px 0 0;
-    margin: 50px auto 0;
-    padding: 2rem;
-    max-width: 500px;
-    text-transform: capitalize;
+/* Main Login Container */
+.login-box {
+    background: url('https://i.postimg.cc/DzcfrHG8/blur-background-of-pub-restaurant-with-wood-table-628137314-2125x1416.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Inner Container */
+  .login-inner {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+  }
+  
+  /* Header Section */
+  .login-header {
+    background-color: #6c63ff;
+    color: white;
     font-size: 2rem;
     text-align: center;
-    background-color: #6c63ff;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Form Container */
-.box2 {
-    border: 1px solid #ddd;
-    border-radius: 0 0 15px 15px;
-    margin: 0 auto;
-    max-width: 500px;
-    text-align: center;
-    padding: 2rem;
+    text-transform: capitalize;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  /* Form Section */
+  .login-form-container {
+    padding: 20px;
     background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Form Labels */
-label {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  /* Labels and Inputs */
+  label {
+    font-size: 1.1rem;
     color: #333;
-}
-
-/* Input Fields */
-.LoginInput {
-    background-color: #f9f9f9;
-    color: #333;
-    padding: 1rem;
-    font-size: 1rem;
-    width: 90%;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin: 0.5rem auto 1.5rem;
     display: block;
-    transition: all 0.3s ease;
-}
-
-.LoginInput:focus {
+    margin-bottom: 5px;
+  }
+  
+  .login-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+    font-size: 1rem;
+  }
+  
+  .login-input:focus {
     border-color: #6c63ff;
     outline: none;
-}
-
-/* Text below Input Fields */
-.q-afterinput1 {
-    margin-top: -10px;
-    margin-bottom: 30px;
-    font-size: 1rem;
-    text-transform: capitalize;
-    text-align: center;
-    color: #6c63ff;
-}
-
-.q-afterinput2 {
-    border-top: 1px solid #ddd;
-    margin: 20px auto;
-    font-size: 1rem;
-    text-transform: capitalize;
-    text-align: center;
-    color: #6c63ff;
-    padding-top: 10px;
-    max-width: 400px;
-}
-
-/* Submit Button */
-.LoginSubmitBtn {
-    font-size: 1.3rem;
+  }
+  
+  /* Submit Button */
+  .login-submit-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
     border-radius: 25px;
-    padding: 0.8rem 2rem;
-    background-color: #6c63ff;
-    color: white;
     border: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.LoginSubmitBtn:hover {
-    cursor: pointer;
-    background-color: #584ce6;
-    transform: translateY(-3px);
-}
-
-/* Button Container */
-.btn1 {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 1.5rem;
-}
-
-/* Additional Buttons */
-.btn {
-    text-align: center;
-    padding: 10px 30px;
-    font-size: 1rem;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #6c63ff;
+    background-color: #2196f3;
     color: white;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-submit-btn:hover {
+    background-color: #0b79d0;
     cursor: pointer;
-}
-
-/* Links in Buttons */
-.btns a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* Flex Container for Labels and Inputs */
-.LogFlexy {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  }
+  
+  /* Error Message */
+  .login-error {
+    color: red;
+    font-size: 0.9rem;
     margin-bottom: 1rem;
-}
-
-/* Responsive Styles for Smaller Screens */
-@media (max-width: 768px) {
-    .LoginBox1, .box2 {
-        margin-left: 20px;
-        margin-right: 20px;
-        width: auto;
+  }
+  
+  /* Terms Text */
+  .login-terms {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .login-inner {
+      width: 90%;
     }
-    
-    .LoginInput {
-        width: 100%;
-    }
-
-    .q-afterinput2 {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-}
+  }
+  

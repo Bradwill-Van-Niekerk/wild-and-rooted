@@ -5,15 +5,9 @@ import React from 'react';
 import Navbar from './Components/Navbar.js'
 import Home from './Components/Home';
 import Registration from './Pages/Registration.js';
-import Login from './Pages/Login'
+import Login from './Pages/Login';
 import Food from './Pages/Food.js';
-
-
 import About from './Components/About.js';
-
-
-
-
 // import Login from './Pages-Staff/Login.js';
 // import Register from './Pages-Staff/Register.js';
 import Carts from './Pages/carts.js'
@@ -43,14 +37,11 @@ function App() {
           <Routes>
 
             <Route path='/' element={<Home/>} />
-
+            <Route path='/' element={<Home/>} />
             <Route path='/about' element={<About/>} />
             <Route path="/registration" element={<Registration />} />
-
-  
             <Route path='/about' element={<About/>} />
             <Route path="/registration" element={<Registration />} />
-
             <Route path="/food" element={<Food />} />
             <Route path='/Inventory' element={<Inventory/>} />
             <Route path='/Orders' element={<Orders/>} />
