@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { OrderData } from './TempData'; // Assuming you have initial data here
 import '../Pages-Staff-CSS/Orders.css'
+import { closestCorners, DndContext } from '@dnd-kit/core';
 
 function OrderHelp({ setHelpOpenFalse }) {
 
@@ -160,6 +161,18 @@ function AddOrder({ addOrder, closeAddOrder }) {
   );
 }
 
+function Column({ tasks}){
+  return (
+  <div className=''>
+    {tasks.map((task) => (
+      <div key={task.id}>
+        {task.title}
+        min 5
+      </div> 
+    ))}
+  </div>)
+}
+
 // Orders Component
 function Orders() {
   const [orderList, setOrderList] = useState(OrderData); // Initialize with OrderData
@@ -182,51 +195,63 @@ function Orders() {
   const DisplayOrders = () =>{
     return (
       <>
-                  {orderList.map((order) => (
-                <div key={order.id} className="OrderBox">
-                  <h3 className='OrderHeading'>Table {order.table}</h3>
-                  <button className='OrderArrowBtn'>=> </button>
-                  <div className='OrdersList'>
-                    <p>Drinks: {order.drinks || 'N/A'}</p>
-                    <p>Starters: {order.food?.starter || 'N/A'}</p>
-                    <p>Main Course: {order.food?.mainCourse || 'N/A'}</p>
-                    <p>Dessert: {order.food?.dessert || 'N/A'}</p>
-                    <p>Special Requests: {order.specialNote || 'None'}</p>
-                  </div>
+        {orderList.map((order) => (
+          <div key={order.id} className="OrderBox">
+          <h3 className='OrderHeading'>Table {order.table}</h3>
+          <button className='OrderArrowBtn'>=> </button>
+          <div className='OrdersList'>
+            <p>Drinks: {order.drinks || 'N/A'}</p>
+            <p>Starters: {order.food?.starter || 'N/A'}</p>
+            <p>Main Course: {order.food?.mainCourse || 'N/A'}</p>
+            <p>Dessert: {order.food?.dessert || 'N/A'}</p>
+            <p>Special Requests: {order.specialNote || 'None'}</p>
+          </div>
         </div>
         ))}
       </>
     )
   }
+
+  const [tasks, setTasks] = useState(
+    [ {id: 1, title: "Add test"},
+      {id: 2, title: "to the"},
+      {id: 3, title: "other test"},
+    ]
+  )
   return (
     <>
+    
       <div className="HomesBox1">
         <h1>Orders</h1>
       </div>
 
       <div className="HomesBox2">
-        <div className="HomesBoxe1">
-          <div className="HomesBoxes1">
-            <h2>🤵 Ordered</h2>
+        
+          <div className="HomesBoxe1">
+            <div className="HomesBoxes1">
+              <h2>🤵 Ordered</h2>
+            </div>
+            <div className="HomesBoxes2">
+              {/*the layout for the table */}
+              {/* calls the table */}
+                <DisplayOrders/>
+            </div>
           </div>
-          <div className="HomesBoxes2">
-            {/*the layout for the table */}
-            {/* calls the table */}
-            <DisplayOrders/>
-          </div>
-        </div>
 
-        <div className="HomesBoxe2">
-          <div className="HomesBoxes1">
-            <h2>👩‍🍳 Preparing</h2>
+          <div className="HomesBoxe2">
+            <div className="HomesBoxes1">
+              <h2>👩‍🍳 Preparing</h2>
+            </div>
+            <div className="HomesBoxes2">
+            </div>
           </div>
-          <div className="HomesBoxes2">
-          </div>
-        </div>
 
-        <div className="HomesBoxes1">
-          <h2>👩‍💼 Served</h2>
-        </div>
+          <div className="HomesBoxes1">
+            <h2>👩‍💼 Served</h2>
+          </div>
+        <DndContext collisionDetection={closestCorners}>
+          <Column tasks={tasks}/>
+        </DndContext>
       </div>
 
       {/* Add Order Form */}
