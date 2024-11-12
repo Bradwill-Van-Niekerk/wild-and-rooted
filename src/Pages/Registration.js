@@ -80,7 +80,7 @@ export default function Registration() {
 
                     {/* Link to Login Page */}
                     <h2>
-                        <Link to="/login">
+                        <Link to="/Login">
                             Already have an account?
                         </Link>
                     </h2>
