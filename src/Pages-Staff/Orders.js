@@ -198,7 +198,7 @@ function Orders() {
         {orderList.map((order) => (
           <div key={order.id} className="OrderBox">
           <h3 className='OrderHeading'>Table {order.table}</h3>
-          <button className='OrderArrowBtn'>=> </button>
+          <button className='OrderArrowBtn'>= </button>
           <div className='OrdersList'>
             <p>Drinks: {order.drinks || 'N/A'}</p>
             <p>Starters: {order.food?.starter || 'N/A'}</p>
