@@ -2,6 +2,8 @@ import React from 'react';
 import OurView from '../Assets/images/Our view.jpeg';
 import kitchenStaffImage from '../Assets/images/kitchen staff.jpg';
 import waitStaffImage from '../Assets/images/waitress_and_waiter.jpg';
+// eslint-disable-next-line no-unused-vars
+import backgroundImage from '../Assets/images/about_background.jpg'
 
 const AboutUs = () => {
   return (
@@ -56,22 +58,25 @@ const styles = {
     maxWidth: '800px',
     margin: '0 auto',
     fontFamily: 'Arial, sans-serif',
-    color: '#333',
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundPosition: 'center'
   },
   header: {
     fontSize: '32px',
     textAlign: 'center',
     marginBottom: '20px',
+    color: 'white',
   },
   subHeader: {
     fontSize: '24px',
     marginTop: '20px',
     marginBottom: '10px',
+    color: 'white',
   },
   paragraph: {
     fontSize: '16px',
     lineHeight: '1.6',
-    color: '#666',
+    color: 'white',
     marginBottom: '20px',
   },
   image: {
