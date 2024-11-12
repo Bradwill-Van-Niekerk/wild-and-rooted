@@ -44,7 +44,7 @@ function App() {
             <Route path='/Orders' element={<Orders/>} />
             <Route path='/Orders' element={<Menu/>} />
             <Route path='/Vegs' element={< Vegetable />} />
-            <Route path='/Fruit' element={<Fruits/>} />
+            <Route path='/Fruits' element={<Fruits/>} />
             <Route path='/Login' element={<Login/>} />
             {/*<Route path='/Register' element={<Register/>}/> */}
             <Route path='/carts' element={<Carts/>} />
