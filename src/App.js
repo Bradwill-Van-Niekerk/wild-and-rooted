@@ -11,7 +11,7 @@ import About from './Components/About.js';
 // import Login from './Pages-Staff/Login.js';
 // import Register from './Pages-Staff/Register.js';
 import Carts from './Pages/carts.js'
-
+//import Fruits from './Pages/Fruits.js';
 
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
@@ -37,11 +37,14 @@ function App() {
           <Routes>
 
             <Route path='/' element={<Home/>} />
+            <Route path='/about' element={<About/>} />
+            <Route path="/registration" element={<Registration />} />
             <Route path='/' element={<Home/>} />
             <Route path='/about' element={<About/>} />
             <Route path="/registration" element={<Registration />} />
             <Route path='/about' element={<About/>} />
             <Route path="/registration" element={<Registration />} />
+
             <Route path="/food" element={<Food />} />
             <Route path='/Inventory' element={<Inventory/>} />
             <Route path='/Orders' element={<Orders/>} />
