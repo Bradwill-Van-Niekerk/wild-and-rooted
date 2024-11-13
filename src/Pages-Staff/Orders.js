@@ -38,17 +38,24 @@ function Orders() {
       [...tasks, { id: tasks.length + 1 , title }]
     );
   };
+  //vert
+  const getTaskPositionY = id => tasks.findIndex(task => task.id === id)
+  
+  const [tasks, setTasks] = useState([ 
+    {id: 1, title: "Pizza"},
+    {id: 2, title:"chicken"},
+    {id: 3, title: "24 Wings"},
 
-  const getTaskPosition = id => tasks.findIndex(task => task.id === id)
-
+    ]
+  )
   const handleDragEnd = event => {
     const {active, over} = event;
  
     if(active.id === over.id) return; //no change if the items dropped in the same place
-
+    
     setTasks( tasks =>{
-      const originalPosition = getTaskPosition(active.id)
-      const newPosition = getTaskPosition(over.id)
+      const originalPosition = getTaskPositionY(active.id)
+      const newPosition = getTaskPositionY(over.id)
     
       return arrayMove(tasks, originalPosition, newPosition)
     })
@@ -58,19 +65,35 @@ function Orders() {
     useSensor(TouchSensor),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
   );
+  //horizontal
+  // const getTaskPositionX = id => tasks.findIndex(task => task.id === id)
+  
+  // const [tasks, setTasks] = useState([ 
+  //   {id: 1, title: "Pizza"},
+  //   {id: 2, table: "", drinks: "", starter: "", main: ""},
+  //   {id: 3, title: "24 Wings"},
+
+  //   ]
+  // )
+  // const handleDragEnd = event => {
+  //   const {active, over} = event;
+ 
+  //   if(active.id === over.id) return; //no change if the items dropped in the same place
+    
+  //   setTasks( tasks =>{
+  //     const originalPosition = getTaskPosition(active.id)
+  //     const newPosition = getTaskPosition(over.id)
+    
+  //     return arrayMove(tasks, originalPosition, newPosition)
+  //   })
+  // }
 
   // not being used yet
   // const [columnTasks, setColumnTasks] = useState([
   //    {Order: }
   // ])
 
-  const [tasks, setTasks] = useState([ 
-    {id: 1, title: "Pizza"},
-    {id: 2, table: "", drinks: "", starter: "", main: ""},
-    {id: 3, title: "24 Wings"},
 
-    ]
-  )
   return (
     <>
    
