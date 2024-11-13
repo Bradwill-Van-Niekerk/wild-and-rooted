@@ -1,5 +1,6 @@
 import "../Pages-Staff-CSS/Inventory.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function SideBar(){
     return(
@@ -28,11 +29,25 @@ function SideBar(){
 }
 
 function Data(){
+    const [meats, setMeats] = useState([ 
+            {id: 1, title: "Chicken", amount: 17, lowest: 5 },
+            {id: 2, title: "Duck", amount: 7},
+            {id: 3, title: "Beef", amount: 9},
+            {id: 4, title: "Deer", amount: 20},
+        ])
     return(
         <>
-        <div className="">
-            
-        </div>
+            <div className="">
+                <div>
+                    Like
+                    {/* pull the data(title, amount, max amount, min amount before sending a msg) */}
+                    {meats.map((meat) => (
+                        <div key={meat.id}>
+                            There is {meat.amount} {meat.title} left. if {meat.amound - meat.lowest}
+                        </div>
+                    ))}
+                </div>
+            </div>
         </>
     )
 }
