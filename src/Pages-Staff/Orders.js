@@ -45,7 +45,6 @@ function Orders() {
     {id: 1, title: "Pizza"},
     {id: 2, title:"chicken"},
     {id: 3, title: "24 Wings"},
-
     ]
   )
   const handleDragEnd = event => {
@@ -65,34 +64,6 @@ function Orders() {
     useSensor(TouchSensor),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
   );
-  //horizontal
-  // const getTaskPositionX = id => tasks.findIndex(task => task.id === id)
-  
-  // const [tasks, setTasks] = useState([ 
-  //   {id: 1, title: "Pizza"},
-  //   {id: 2, table: "", drinks: "", starter: "", main: ""},
-  //   {id: 3, title: "24 Wings"},
-
-  //   ]
-  // )
-  // const handleDragEnd = event => {
-  //   const {active, over} = event;
- 
-  //   if(active.id === over.id) return; //no change if the items dropped in the same place
-    
-  //   setTasks( tasks =>{
-  //     const originalPosition = getTaskPosition(active.id)
-  //     const newPosition = getTaskPosition(over.id)
-    
-  //     return arrayMove(tasks, originalPosition, newPosition)
-  //   })
-  // }
-
-  // not being used yet
-  // const [columnTasks, setColumnTasks] = useState([
-  //    {Order: }
-  // ])
-
 
   return (
     <>
@@ -119,7 +90,7 @@ function Orders() {
             </div>
             <div className="HomesBoxes2">
               <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-                {/* <Column tasks={columns.tasks} /> */}
+                {/* <Column tasks={tasks[2]} /> */}
               </DndContext>
             </div>
           </div>
@@ -129,7 +100,7 @@ function Orders() {
             </div>
             <div className="HomesBoxes2">
               <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-                {/* <Column tasks={columns.tasks} /> */}
+                {/* <Column tasks={tasks[3]} /> */}
               </DndContext>
             </div>
           </div>
