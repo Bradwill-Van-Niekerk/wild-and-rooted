@@ -45,7 +45,7 @@ nav {
   /* Active/Hovered Link */
   .nav-links .link:hover,
   .nav-links .link.active {
-    background-color: red;
+    background-color: #ff6347;
     color: white;
     border-radius: 5px;
   }
@@ -58,7 +58,7 @@ nav {
   }
   
   .cart-icon:hover {
-    color: #4caf50; /* Change icon color on hover */
+    color: white; /* Change icon color on hover */
   }
   
   /* Dropdown */
@@ -101,7 +101,7 @@ nav {
   
   /* Hover on Dropdown Item */
   .dropdown-item:hover {
-    background-color: #4caf50;  /* Green background on hover */
+    background-color:#ff6347;  /* Green background on hover */
     color: white;  /* White text on hover */
   }
   
