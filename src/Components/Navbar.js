@@ -37,12 +37,23 @@ const Navbar = () => {
           >
             <Link to='/Categories' className={`link ${location.pathname === '/Categories' ? 'active' : ''}`}>Categories</Link>
             {isDropdownOpen && (
+<<<<<<< HEAD
   <ul className="dropdown-menu">
     <li><Link to='/Categories/Fruits' className="dropdown-item">Fruits</Link></li>
     <li><Link to='/Categories/vegetables' className="dropdown-item">Vegetables</Link></li>
     <li><Link to='/Categories/Food' className="dropdown-item">Food</Link></li>
   </ul>
 )}
+=======
+              // goes in after the to='' but doesnt have any import for the styling style={styles.dropdownMenu}
+              <ul>
+                <li><Link to='/Categories/Fruits' >Fruits</Link></li>
+                <li><Link to='/Categories/Vegs' >Vegetables</Link></li>
+                <li><Link to='/Categories/Food' >Food</Link></li>
+              </ul>
+            )}
+
+>>>>>>> 0cf3fa11bb4fb9b338f389eb56cab6f8e43efb14
           </li>
           <li><Link to='/Buy' className={`link ${location.pathname === '/Buy' ? 'active' : ''}`}>Buy</Link></li>
           <li>
