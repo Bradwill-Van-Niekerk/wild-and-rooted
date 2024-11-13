@@ -1,11 +1,28 @@
-import "../Pages-Staff-CSS/Inventory.css"
+import "../Pages-Staff-CSS/Inventory.css";
+import { Link } from "react-router-dom";
 
 function SideBar(){
     return(
         <>
-        <h3>
-            Index for the content
-        </h3>
+        <div>
+            <p>
+            <ol>
+                <li>
+                    
+                    <Link to="/Inventory/Fishes" />Fish
+                </li>
+                <li>
+                    <Link to="/Inventory/Meats" />Meats
+                </li>
+                <li>
+                    <Link to="/Inventory/Fruits" />Fruits
+                </li>
+                <li>
+                    <Link to="/Inventory/Vegetables" />Vegetables
+                </li>
+            </ol>
+            </p>
+        </div>
         </>
     )
 }
@@ -21,6 +38,8 @@ function Data(){
 }
 
 function Inventory(){
+    //usestate for each of the side bar
+
     return(
         <>
         <div className="InventoryBox1">
