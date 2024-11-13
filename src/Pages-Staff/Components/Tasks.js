@@ -1,8 +1,8 @@
 import { useSortable } from "@dnd-kit/sortable"
 import { CSS } from '@dnd-kit/utilities';
 
-function Tasks({id, title, columnName}){
-  const {attributes, listeners, setNodeRef, transform, transition} = useSortable({id, data: { column: columnName }})
+function Tasks({id, title}){
+  const {attributes, listeners, setNodeRef, transform, transition} = useSortable({id})
   
   const style = {
     transition,
@@ -13,9 +13,15 @@ function Tasks({id, title, columnName}){
     borderRadius: '4px',
     backgroundColor: '#f8f8f8',
     cursor: 'move',
+    displayFlex: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    textAlign: 'left',
+    paddingLeft: '2rem', 
   }
   return (
-    <div ref={setNodeRef} {...attributes} {...listeners} style={style}>
+    <div ref={setNodeRef} {...attributes} {...listeners} style={style} >
       <input type='checkbox' className='CheckboxOr' />{title}
     </div>
   )

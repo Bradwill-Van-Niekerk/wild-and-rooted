@@ -302,3 +302,8 @@ textarea{
     align-self: center;
     border: 1px solid grey;
 }
+
+.tableBox{
+    background-color: black;
+
+}

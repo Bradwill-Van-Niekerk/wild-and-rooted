@@ -29,64 +29,30 @@ function OrderHelp({ setHelpOpenFalse }) {
 // Orders Component
 function Orders() {
   const [isHelpOpen, setHelpOpen] = useState(false); // Toggle Help
-  
   const setHelpOpenFalse = () => {
     setHelpOpen(false);
   };
 
-  const [columns, setColumns] = useState({
-    ordered: [ {id: 1, title: "Pizza"},
-      {id: 2, table: "", drinks: "", starter: "", main: ""},
-      {id: 3, title: "24 Wings"},
-    ],
-    preparing: [],
-    served:[]
-  })
-
-  const addTask = (table, drinks, starters, main, dessert) => {
-    setColumns(prevColumns => ({
-      ...prevColumns,
-      ordered: [...prevColumns.ordered, { id: Date.now(), title }]
-    }));
+  const addTask = ( title ) => {
+    setTasks((tasks) =>
+      [...tasks, { id: tasks.length + 1 , title }]
+    );
   };
 
-  const getTaskPosition = (id, column) => columns[column].findIndex(task => task.id === id)
+  const getTaskPosition = id => tasks.findIndex(task => task.id === id)
 
   const handleDragEnd = event => {
     const {active, over} = event;
 
     if(active.id === over.id) return; //no change if the items dropped in the same place
 
-    const activeColumn = active.data.current.column;
-    const overColumn = over.data.current.column;
+    setTasks( tasks =>{
+      const originalPosition = getTaskPosition(active.id)
+      const newPosition = getTaskPosition(over.id)
+    
+      return arrayMove(tasks, originalPosition, newPosition)
+    })
 
-    if (activeColumn === overColumn) {
-      // If dragged within the same column, reorder tasks
-      const columnTasks = columns[activeColumn];
-      const originalPosition = getTaskPosition(active.id, activeColumn);
-      const newPosition = getTaskPosition(over.id, activeColumn);
-      
-      setColumns(prevColumns => ({
-        ...prevColumns,
-        [activeColumn]: arrayMove(columnTasks, originalPosition, newPosition)
-      }));
-    } else {
-      // Move task between columns
-      const sourceTasks = columns[activeColumn];
-      const targetTasks = columns[overColumn];
-      const sourceIndex = getTaskPosition(active.id, activeColumn);
-
-      // Remove the item from source column and add it to target column
-      const movedTask = sourceTasks[sourceIndex];
-      sourceTasks.splice(sourceIndex, 1);
-      targetTasks.push(movedTask);
-
-      setColumns(prevColumns => ({
-        ...prevColumns,
-        [activeColumn]: sourceTasks,
-        [overColumn]: targetTasks
-      }));
-    }
   }
     const sensors = useSensors(
     useSensor(PointerSensor),
@@ -94,11 +60,15 @@ function Orders() {
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
   );
 
-  // eslint-disable-next-line no-unused-vars
-  const [tasks, setTasks] = useState(
-    [ {id: 1, title: "Add test"},
-      {id: 2, title: "to the"},
-      {id: 3, title: "other test"},
+  // not being used yet
+  // const [columnTasks, setColumnTasks] = useState([
+  //    {Order: }
+  // ])
+
+  const [tasks, setTasks] = useState([ 
+    {id: 1, title: "Pizza"},
+    {id: 2, table: "", drinks: "", starter: "", main: ""},
+    {id: 3, title: "24 Wings"},
     ]
   )
   return (
@@ -115,7 +85,7 @@ function Orders() {
             <div className="HomesBoxes2">
             <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
               <Input onSubmit={addTask} />
-              <Column tasks={columns.ordered} columnName="ordered" />
+              <Column tasks={tasks}/>
             </DndContext>
             </div>
           </div>
@@ -126,7 +96,7 @@ function Orders() {
             </div>
             <div className="HomesBoxes2">
               <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-                <Column tasks={columns.preparing} columnName="preparing" />
+                {/* <Column tasks={columns.tasks} /> */}
               </DndContext>
             </div>
           </div>
@@ -136,7 +106,7 @@ function Orders() {
             </div> 
             <div className="HomesBoxes2">
               <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-                <Column tasks={columns.served} columnName="served" />
+                {/* <Column tasks={columns.tasks} /> */}
               </DndContext>
             </div> 
           </div>
