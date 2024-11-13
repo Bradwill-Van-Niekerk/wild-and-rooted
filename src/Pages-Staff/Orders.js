@@ -5,9 +5,9 @@ import { arrayMove,sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import Column from './Components/Column';
 import Input from './Components/Input';
 import { useSensors } from '@dnd-kit/core';
-
+ 
 function OrderHelp({ setHelpOpenFalse }) {
-
+ 
   return (
     <>
       <div className='HelpBox'>
@@ -25,7 +25,7 @@ function OrderHelp({ setHelpOpenFalse }) {
     </>
   );
 }
-
+ 
 // Orders Component
 function Orders() {
   const [isHelpOpen, setHelpOpen] = useState(false); // Toggle Help
@@ -43,7 +43,7 @@ function Orders() {
 
   const handleDragEnd = event => {
     const {active, over} = event;
-
+ 
     if(active.id === over.id) return; //no change if the items dropped in the same place
 
     setTasks( tasks =>{
@@ -52,7 +52,6 @@ function Orders() {
     
       return arrayMove(tasks, originalPosition, newPosition)
     })
-
   }
     const sensors = useSensors(
     useSensor(PointerSensor),
@@ -69,15 +68,16 @@ function Orders() {
     {id: 1, title: "Pizza"},
     {id: 2, table: "", drinks: "", starter: "", main: ""},
     {id: 3, title: "24 Wings"},
+
     ]
   )
   return (
     <>
-    
+   
       <div className="HomesBox1">
         <h1>Orders</h1>
       </div>
-      <div className="HomesBox2">     
+      <div className="HomesBox2">    
           <div className="HomesBoxe1">
             <div className="HomesBoxes1">
               <h2>🤵 Ordered</h2>
@@ -89,7 +89,7 @@ function Orders() {
             </DndContext>
             </div>
           </div>
-
+ 
           <div className="HomesBoxe2">
             <div className="HomesBoxes1">
               <h2>👩‍🍳 Preparing</h2>
@@ -103,15 +103,15 @@ function Orders() {
           <div className="HomesBoxe3">
             <div className="HomesBoxes1">
               <h2>👩‍💼 Served</h2>
-            </div> 
+            </div>
             <div className="HomesBoxes2">
               <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
                 {/* <Column tasks={columns.tasks} /> */}
               </DndContext>
-            </div> 
+            </div>
           </div>
       </div>
-
+ 
       {/* Toggle Help */}
       <div className='ExtraBtnsGrid'>
         <div className='OrdersBtn1'>
@@ -121,13 +121,13 @@ function Orders() {
             </button>
           )}
         </div>
-
+ 
         {isHelpOpen && <OrderHelp setHelpOpenFalse={setHelpOpenFalse} />}
-
+ 
       </div>
     </>
   );
 }
-
-
+ 
+ 
 export default Orders;

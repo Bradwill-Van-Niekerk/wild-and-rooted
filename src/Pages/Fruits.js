@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
-import './Fruits.css'; // Use a CSS file for consistent styling
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { CartContext } from './cartContext'; // Assuming you have a cartContext file
+import './Fruits.css';
 
 const Fruits = () => {
-  const [cart, setCart] = useState([]);
-
-  const addToCart = (fruit) => {
-    setCart((prevCart) => [...prevCart, fruit]);
-    alert(`${fruit.name} has been added to the cart.`);
-  };
+  const { cart, addToCart } = useContext(CartContext);
 
   const fruitCategories = {
     "Citrus Fruits": [
@@ -56,59 +53,15 @@ const Fruits = () => {
         image: "https://plantsender.com.au/wp-content/uploads/2022/05/KIWIBERRY-1.jpg",
       },
     ],
-    "Tropical Fruits": [
-      {
-        id: 8,
-        name: "Pineapple",
-        description: "Tropical, sweet pineapple, perfect for snacking.",
-        price: "R30.00 each",
-        image: "https://www.castlefarmbishton.co.uk/wp-content/uploads/2021/03/fresh-pineapple-sliced-on-chopping-board.jpeg",
-      },
-      {
-        id: 7,
-        name: "Mango",
-        description: "Ripe and juicy mangoes, perfect for smoothies.",
-        price: "R25.00 each",
-        image: "http://batungbacalfarms.com/wp-content/uploads/2020/03/received_1297602220628516.jpeg",
-      },
-      {
-        id: 8,
-        name: "Guava",
-        description: "Ripe and juicy guavas, perfect for smoothies.",
-        price: "R22.00 each",
-        image: "https://s30386.pcdn.co/wp-content/uploads/2019/08/p19n9riurt9t4e3fgie4ipbv06.jpg",
-      },
-    ],
-    "Stone Fruits": [
-      {
-        id: 9,
-        name: "Peach",
-        description: "Sweet, juicy peaches perfect for snacking.",
-        price: "R40.00 per kg",
-        image: "https://c.stocksy.com/a/2IH400/z9/1019778.jpg",
-      },
-      {
-        id: 10,
-        name: "Cherry",
-        description: "Fresh, ripe cherries, great for summer desserts.",
-        price: "R80.00 per kg",
-        image: "https://watermark.lovepik.com/photo/20211120/large/lovepik-fresh-cherry-picture-picture_500421002.jpg",
-      },
-      {
-        id: 11,
-        name: "Plum",
-        description: "Fresh, ripe plums, perfect for summer desserts.",
-        price: "R70.00 per kg",
-        image: "https://cdn.shopify.com/s/files/1/0254/7715/2804/files/overflowing-with-ripe_-juicy-fruit.-The-peaches-are-sliced-into-thin-wedges_-the-plums-are-cut-in-half_-and-the-cherries-are-left-whole-with-their-stems-intact._1024x1024.jpg?v=1681309620",
-      },
-    ],
   };
 
   return (
     <div className="fruit-container">
       <header className="fruit-header">
         <h1>Our Fresh Fruits</h1>
-        <div className="cart-icon">🛒 {cart.length} items</div>
+        <Link to="/Cart" className="cart-icon">
+          🛒 {cart.length} items
+        </Link>
       </header>
 
       {Object.entries(fruitCategories).map(([category, fruits]) => (
