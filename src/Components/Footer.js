@@ -18,6 +18,38 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* Team Section */}
+      <section style={styles.teamSection}>
+        <h2 style={styles.subHeader}>Meet Our Team</h2>
+        <div style={styles.teamGrid}>
+          <div style={styles.teamMember}>
+            <img src="backend1.jpg" alt="Backend Developer" style={styles.image} />
+            <h3 style={styles.teamRole}>Backend Developer</h3>
+            <p style={styles.description}>Specializes in server-side logic and database integration.</p>
+          </div>
+          <div style={styles.teamMember}>
+            <img src="backend2.jpg" alt="Backend Developer" style={styles.image} />
+            <h3 style={styles.teamRole}>Backend Developer</h3>
+            <p style={styles.description}>Expert in API development and cloud architecture.</p>
+          </div>
+          <div style={styles.teamMember}>
+            <img src="frontend.jpg" alt="Frontend Developer" style={styles.image} />
+            <h3 style={styles.teamRole}>Frontend Developer</h3>
+            <p style={styles.description}>Focuses on creating intuitive and responsive user interfaces.</p>
+          </div>
+          <div style={styles.teamMember}>
+            <img src="project_manager.jpg" alt="Project Manager" style={styles.image} />
+            <h3 style={styles.teamRole}>Project Manager</h3>
+            <p style={styles.description}>Oversees project timelines and ensures successful delivery.</p>
+          </div>
+          <div style={styles.teamMember}>
+            <img src="sales_manager.jpg" alt="Sales Manager" style={styles.image} />
+            <h3 style={styles.teamRole}>Sales Manager</h3>
+            <p style={styles.description}>Leads the sales team with a focus on client relationships.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Location Section */}
       <section style={{ ...styles.section, ...styles.verticalSection }}>
         <h2 style={styles.subHeader}>Location</h2>
@@ -55,6 +87,35 @@ const styles = {
   link: {
     color: '#fff',
     textDecoration: 'none',
+  },
+  teamSection: {
+    padding: '20px',
+    textAlign: 'center',
+    marginTop: '20px',
+  },
+  teamGrid: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '20px',
+    justifyContent: 'center',
+  },
+  teamMember: {
+    maxWidth: '150px',
+    textAlign: 'center',
+  },
+  image: {
+    width: '100%',
+    borderRadius: '50%',
+    height: 'auto',
+  },
+  teamRole: {
+    fontSize: '16px',
+    color: '#fff',
+    marginTop: '10px',
+  },
+  description: {
+    fontSize: '14px',
+    color: '#ccc',
   },
   section: {
     padding: '20px',
