@@ -18,22 +18,42 @@ const Contact = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    PopUp(); // Show popup after submission
+
+    try {
+      const response = await fetch('https://formspree.io/f/xldejegq', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        PopUp(); // Show popup after successful submission
+        setFormData({ name: '', email: '', message: '' }); // Reset form
+      } else {
+        alert('There was an issue sending your message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an issue sending your message. Please try again.');
+    }
   };
 
   // PopUp function
   const PopUp = () => {
-    alert("Your message was sent successfully");
+    alert('Your message was sent successfully');
   };
 
   return (
     <section id="contact" style={styles.contactSection}>
       <div style={styles.container}>
         <h2 style={styles.header}>Contact Us</h2>
-        <p style={styles.paragraph}>If you have any questions, feel free to reach out to us. We're here to help!</p>
+        <p style={styles.paragraph}>
+          If you have any questions, feel free to reach out to us. We're here to help!
+        </p>
         <form id="contact-form" onSubmit={handleSubmit} style={styles.form}>
           <label htmlFor="name" style={styles.label}>Your Name</label>
           <input
