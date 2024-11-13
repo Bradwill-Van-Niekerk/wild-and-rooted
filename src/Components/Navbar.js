@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom'; // Import useLocation to get current path
+import './Navbar.css';
+import { FaShoppingCart } from 'react-icons/fa'; // Importing the cart icon from react-icons
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const location = useLocation(); // Get current route path
 
   const handleMouseEnter = () => {
     setIsDropdownOpen(true);
@@ -14,104 +17,56 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav style={styles.nav}>
-        <div style={styles.logoContainer}>
+      <nav>
+        <div className="logo-container">
           <img
             src="https://i.postimg.cc/XNPj7F9C/logo.jpg" 
             alt="Farmhouse Fare Logo"
-            style={styles.logo}
+            className="logo"
           />
-          <h1 style={styles.logoText}>Farmhouse Fare</h1>
+          <h1 className="logo-text">Farmhouse Fare</h1>
         </div>
-        <ul style={styles.navLinks}>
-          <li><Link to='/' style={styles.link}>Home</Link></li>
+        <ul className="nav-links">
+          <li>
+            <Link to='/' className={`link ${location.pathname === '/' ? 'active' : ''}`}>Home</Link>
+          </li>
           <li 
-            style={styles.dropdown}
+            className={`dropdown ${isDropdownOpen ? 'open' : ''}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <Link to='/Categories' style={styles.link}>Categories</Link>
+            <Link to='/Categories' className={`link ${location.pathname === '/Categories' ? 'active' : ''}`}>Categories</Link>
             {isDropdownOpen && (
+<<<<<<< HEAD
+  <ul className="dropdown-menu">
+    <li><Link to='/Categories/Fruits' className="dropdown-item">Fruits</Link></li>
+    <li><Link to='/Categories/vegetables' className="dropdown-item">Vegetables</Link></li>
+    <li><Link to='/Categories/Food' className="dropdown-item">Food</Link></li>
+  </ul>
+)}
+=======
               <ul style={styles.dropdownMenu}>
                 <li><Link to='/Categories/Fruits' style={styles.dropdownItem}>Fruits</Link></li>
-                <li><Link to='/Categories/vegetables' style={styles.dropdownItem}>Vegetables</Link></li>
+                <li><Link to='/Categories/Vegs' style={styles.dropdownItem}>Vegetables</Link></li>
                 <li><Link to='/Categories/Food' style={styles.dropdownItem}>Food</Link></li>
               </ul>
             )}
+>>>>>>> 328d9c887374566383464fce979cb1912bc7decc
           </li>
-          <li><Link to='/Buy' style={styles.link}>Buy</Link></li>
-          <li><Link to='/Cart' style={styles.link}>Cart</Link></li>
-          <li><Link to='/Registration' style={styles.link}>Register</Link></li>
-          <li><Link to='/Login' style={styles.link}>Login</Link></li>
-          <li><Link to="/Orders" style={styles.link}>Orders</Link></li>
-          <li><Link to="/Inventory" style={styles.link}>Inventory</Link></li>  
+          <li><Link to='/Buy' className={`link ${location.pathname === '/Buy' ? 'active' : ''}`}>Buy</Link></li>
+          <li>
+            <Link to='/Cart' className={`link ${location.pathname === '/Cart' ? 'active' : ''}`}>
+              <FaShoppingCart className="cart-icon" />
+            </Link>
+          </li>
+          <li><Link to='/Registration' className={`link ${location.pathname === '/Registration' ? 'active' : ''}`}>Register</Link></li>
+          <li><Link to='/Login' className={`link ${location.pathname === '/Login' ? 'active' : ''}`}>Login</Link></li>
+          <li><Link to="/Orders" className={`link ${location.pathname === '/Orders' ? 'active' : ''}`}>Orders</Link></li>
+          <li><Link to="/Inventory" className={`link ${location.pathname === '/Inventory' ? 'active' : ''}`}>Inventory</Link></li>  
         </ul>
       </nav>
     </header>
   );
-};
-
-const styles = {
-  nav: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '0 20px',
-    backgroundColor: '#f8f8f8',
-    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-  },
-  logoContainer: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  logo: {
-    width: '50px', 
-    height: '50px',
-    marginRight: '10px',
-  },
-  logoText: {
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-  },
-  navLinks: {
-    display: 'flex',
-    listStyle: 'none',
-    gap: '20px',
-  },
-  link: {
-    textDecoration: 'none',
-    color: '#333',
-    fontSize: '1rem',
-  },
-  // Dropdown styles
-  dropdown: {
-    position: 'relative',
-    listStyle: 'none',
-  },
-  dropdownMenu: {
-    position: 'absolute',
-    top: '100%',
-    left: 0,
-    backgroundColor: '#fff',
-    boxShadow: '0 8px 16px rgba(0, 0, 0, 0.1)',
-    listStyle: 'none',
-    padding: '10px 0',
-    minWidth: '200px',
-    zIndex: 10,
-    borderRadius: '8px',
-    transition: 'opacity 0.3s ease, visibility 0s 0.3s',
-  },
-  dropdownItem: {
-    padding: '10px 20px',
-    textDecoration: 'none',
-    color: '#333',
-    display: 'block',
-    fontSize: '1rem',
-  },
-  dropdownItemHover: {
-    backgroundColor: '#f1f1f1',
-  },
-
 };
 
 export default Navbar;

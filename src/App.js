@@ -1,68 +1,42 @@
-/* eslint-disable no-unused-vars */
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import React from 'react';
-import Navbar from './Components/Navbar.js'
+import Navbar from './Components/Navbar';
 import Home from './Components/Home';
-import Registration from './Pages/Registration.js';
+import Registration from './Pages/Registration';
 import Login from './Pages/Login';
-import Food from './Pages/Food.js';
-import About from './Components/About.js';
-import CartProvider from './Pages/cartContext.js';
-// import Login from './Pages-Staff/Login.js';
-// import Register from './Pages-Staff/Register.js';
-import Cart from './Pages/Cart.js'
-//import Fruits from './Pages/Fruits.js';
-// eslint-disable-next-line no-unused-vars
-// eslint-disable-next-line no-unused-vars
-// import Logo from './Assets/images/logo.jpeg';
-// import Logo from './Pages/media/logo.jpeg';
-
-import Orders from './Pages-Staff/Orders.js';
-
-import Menu from './Components/Menu.js';
-// import Inventory from './Pages-Staff/Inventory.js'
-import Vegetable from './Pages/vegetables.js'
-
-import Inventory from './Pages-Staff/Inventory.js'
-import Fruits from './Pages/Fruits.js';
+import Food from './Pages/Food';
+import About from './Components/About';
+import CartProvider  from './Pages/cartContext';
+import Cart from './Pages/Cart';
+import Orders from './Pages-Staff/Orders';
+import Menu from './Components/Menu';
+import Inventory from './Pages-Staff/Inventory';
+import Vegetable from './Pages/vegetables';
+import Fruits from './Pages/Fruits';
 
 function App() {
   return (
     <CartProvider>
-       <div className="App">
-      <BrowserRouter>
-        <Navbar />
+      <div className="App">
+        <BrowserRouter>
+          <Navbar />
           <Routes>
-
-            <Route path='/' element={<Home/>} />
-            <Route path='/about' element={<About/>} />
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/Inventory" element={<Inventory />} />
+            <Route path="/Orders" element={<Orders />} />
+            <Route path="/Menu" element={<Menu />} />
+            <Route path="/Login" element={<Login />} />
             <Route path="/registration" element={<Registration />} />
-            <Route path='/about' element={<About/>} />
-            <Route path="/registration" element={<Registration />} />
-            <Route path='/about' element={<About/>} />
-            <Route path="/registration" element={<Registration />} />
-            <Route path="/food" element={<Food />} />
-            <Route path='/Inventory' element={<Inventory/>} />
-            <Route path='/Orders' element={<Orders/>} />
-            <Route path='/Orders' element={<Menu/>} />
-            <Route path='/vegs' element={< Vegetable />} />
-            <Route path='/fruit' element={<Fruits/>} />
-            <Route path='/Login' element={<Login/>} />
-            <Route path="/Categories/Fruits" element={<Fruits/>} />
-            <Route path="/Categories/Food" element={<Food/>} />
-            <Route path='/Cart' element={<Cart/>} />
-      {/*
-      <Route path='' element={} />
-      */}
+            <Route path="/Categories/Fruits" element={<Fruits />} />
+            <Route path="/Categories/Food" element={<Food />} />
+            <Route path="/Categories/Vegs" element={<Vegetable />} />
+            <Route path="/Cart" element={<Cart />} />
           </Routes>
-      </BrowserRouter>
-    </div>
-
+        </BrowserRouter>
+      </div>
     </CartProvider>
-   
-   
-   
   );
 }
 

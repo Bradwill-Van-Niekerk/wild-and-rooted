@@ -39,11 +39,12 @@
 }
 
 /* Labels and Inputs */
-label {
+.question{
   font-size: 1.1rem;
   color: #333;
   display: block;
   margin-bottom: 5px;
+  text-align: center;
 }
 
 .RegistrationInput {
@@ -55,6 +56,7 @@ label {
   background-color: #f9f9f9;
   transition: border-color 0.3s ease;
   font-size: 1rem;
+  text-align: center;
 }
 
 .RegistrationInput:focus {
