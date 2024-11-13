@@ -1,5 +1,6 @@
 import { useSortable } from "@dnd-kit/sortable"
 import { CSS } from '@dnd-kit/utilities';
+import './Task.css'
 
 function Tasks({id, title}){
   const {attributes, listeners, setNodeRef, transform, transition} = useSortable({id})
@@ -20,9 +21,18 @@ function Tasks({id, title}){
     textAlign: 'left',
     paddingLeft: '2rem', 
   }
+
+  const shiftOver = () =>{
+    return(
+    <>
+      
+    </>
+    )
+  }
   return (
-    <div ref={setNodeRef} {...attributes} {...listeners} style={style} >
-      <input type='checkbox' className='CheckboxOr' />{title}
+    <div ref={setNodeRef} {...attributes} {...listeners} style={style} > 
+      {title}
+      <button onSubmit={shiftOver} className="ShiftOver" > => </button>
     </div>
   )
 }

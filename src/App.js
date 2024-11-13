@@ -31,7 +31,7 @@ function App() {
             <Route path="/registration" element={<Registration />} />
             <Route path="/Categories/Fruits" element={<Fruits />} />
             <Route path="/Categories/Food" element={<Food />} />
-            <Route path="/Categories/Vegs" element={<Vegetable />} />
+            <Route path="/Categories/Vegetables" element={<Vegetable />} />
             <Route path="/Cart" element={<Cart />} />
           </Routes>
         </BrowserRouter>

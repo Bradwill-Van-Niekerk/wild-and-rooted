@@ -39,7 +39,7 @@ const Navbar = () => {
             {isDropdownOpen && (
   <ul className="dropdown-menu">
     <li><Link to='/Categories/Fruits' className="dropdown-item">Fruits</Link></li>
-    <li><Link to='/Categories/vegetables' className="dropdown-item">Vegetables</Link></li>
+    <li><Link to='/Categories/Vegetables' className="dropdown-item">Vegetables</Link></li>
     <li><Link to='/Categories/Food' className="dropdown-item">Food</Link></li>
   </ul>
 )}
