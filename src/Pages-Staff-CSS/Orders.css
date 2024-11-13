@@ -157,7 +157,7 @@
     background-color: black;
     box-shadow: 0 0 2rem #000877;
     position: fixed;
-    top: 45rem;
+    top: 85%;
     justify-content: center;
     align-items: center;
     z-index: 1000; /*keeps it fixed*/

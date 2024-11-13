@@ -22,17 +22,10 @@ function Tasks({id, title}){
     paddingLeft: '2rem', 
   }
 
-  const shiftOver = () =>{
-    return(
-    <>
-      
-    </>
-    )
-  }
   return (
     <div ref={setNodeRef} {...attributes} {...listeners} style={style} > 
       {title}
-      <button onSubmit={shiftOver} className="ShiftOver" > => </button>
+      <button className="ShiftOver" > => </button>
     </div>
   )
 }
