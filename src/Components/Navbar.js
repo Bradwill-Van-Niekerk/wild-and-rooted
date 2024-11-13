@@ -44,10 +44,10 @@ const Navbar = () => {
   </ul>
 )}
           </li>
+          <li><Link to="/Orders" className={`link ${location.pathname === '/Orders' ? 'active' : ''}`}>Orders</Link></li>
+          <li><Link to="/Inventory" className={`link ${location.pathname === '/Inventory' ? 'active' : ''}`}>Inventory</Link></li> 
           <li><Link to='/Registration' className={`link ${location.pathname === '/Registration' ? 'active' : ''}`}>Register</Link></li>
           <li><Link to='/Login' className={`link ${location.pathname === '/Login' ? 'active' : ''}`}>Login</Link></li>
-          <li><Link to="/Orders" className={`link ${location.pathname === '/Orders' ? 'active' : ''}`}>Orders</Link></li>
-          <li><Link to="/Inventory" className={`link ${location.pathname === '/Inventory' ? 'active' : ''}`}>Inventory</Link></li>  
           <li>
             <Link to='/Cart' className={`link ${location.pathname === '/Cart' ? 'active' : ''}`}>
               <FaShoppingCart className="cart-icon" />
