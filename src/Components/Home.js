@@ -14,7 +14,7 @@ const Hero = () => {
       <div className="hero-content">
         <h1>Welcome to Farmhouse Fare</h1>
         <p>Your farm-to-table experience starts here!</p>
-        <a href="#menu" className="btn">Explore Our Menu</a>
+        <Link to= 'https://i.postimg.cc/R0CTXhd7/modern-minimal-vegetarian-food-menu-flyer-template-538037-184.avif' className="btn">Explore Our Menu</Link>
       </div>
     </section>
   );
