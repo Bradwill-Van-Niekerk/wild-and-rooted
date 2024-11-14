@@ -106,9 +106,8 @@
     background-color: white;
     text-align: center;
     display: flex;
-    top: 20rem;
+    margin-left: 60rem;
     justify-content: center; /*Hori*/
-    margin-left: -10rem;
     z-index: 1000; /*keeps it fixed*/
 }
 .HelpHeading{
@@ -164,7 +163,9 @@
 }
 .ExtraBtnsGrid{
     display: grid;
-    grid-template-columns: 30% 20% 20% 30%;
+    grid-template-columns: 30% 40% 20% 10%;
+    justify-content: center;
+    align-items: center;
 }
 .OrdersBtn1{
     grid-column: 2;
@@ -172,10 +173,9 @@
     justify-content: center;
     align-items: center;
     z-index: 1000; /*keeps it fixed*/
-    left: 50rem;
 }
 .OrdersBtn2{
-    grid-column: 3;
+    grid-column: 4;
     display: flex;
     justify-content: center;
     align-items: center;

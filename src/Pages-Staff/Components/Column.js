@@ -7,7 +7,12 @@ function Column({ tasks }){
     <SortableContext items={tasks} strategy={verticalListSortingStrategy}>
       {tasks.map((task) => (
         <div key={task.id} >
-          <Tasks id={task.id} title={task.title} key={task.id} />
+          <Tasks 
+            id={task.id}
+            table={task.table} 
+            order={task.order}
+            key={task.id} 
+          />
         </div> 
       ))}
     </SortableContext>
