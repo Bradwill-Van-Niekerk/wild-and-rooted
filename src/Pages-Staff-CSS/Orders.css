@@ -28,7 +28,7 @@
     width: 100%;
     height: 10rem auto;
     border: 1px solid black;
-    background-color: #39e95f;
+    background-color: white;
     text-align: center;
 }
 
@@ -307,3 +307,27 @@ textarea{
     background-color: black;
 
 }
+
+.AddOrderContainer {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 3rem;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centering content inside the container */
+    position: fixed; /* Fixes it to the viewport */
+    top: 50%; /* Position it 50% from the top */
+    left: 50%; /* Position it 50% from the left */
+    width: 40%;
+    transform: translate(-50%, -50%); /* This shifts the container by its own width/height */
+    z-index: 1000; /* Ensures it's on top of other content */
+  }
+.OrderOptions{
+    width: auto;
+    height: 4%;
+    font-size: 1.2rem;
+    text-align: center;
+}
+  

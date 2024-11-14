@@ -15,11 +15,11 @@ function Tasks({ id, table, order }) {
     backgroundColor: '#f8f8f8',
     cursor: 'move',
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-    textAlign: 'left',
-    height:'10rem'  ///
+    textAlign: 'center',
+    height:'auto',
   };
 
   const handleShift = () => {
@@ -28,13 +28,23 @@ function Tasks({ id, table, order }) {
   };
 
   return (
-    <div className="TaskBox" key={id}>
+    <div ref={setNodeRef} {...attributes} {...listeners} style={style} key={id}>
       <h3 className="TheTableName">{table}</h3>
     {/* Render order details */}
-    <p className="TheOrderText"><strong className="TheOrderNameText">Drink:</strong> {order.drink}</p>
-    <p className="TheOrderText"><strong className="TheOrderNameText">Starter:</strong> {order.starter}</p>
-    <p className="TheOrderText"><strong className="TheOrderNameText">Main:</strong> {order.main}</p>
-    <p className="TheOrderText"><strong className="TheOrderNameText">Dessert:</strong> {order.dessert}</p>
+    <p className="TheOrderText">
+      <div>
+        <strong className="TheOrderNameText">Drink:</strong> {order.drink}
+      </div>
+      <div>
+        <strong className="TheOrderNameText">Starter:</strong> {order.starter}
+      </div>
+      <div>
+        <strong className="TheOrderNameText">Main:</strong> {order.main}
+      </div>
+      <div>
+      <strong className="TheOrderNameText">Dessert:</strong> {order.dessert}
+      </div>
+    </p>
   </div>
   );
 }
