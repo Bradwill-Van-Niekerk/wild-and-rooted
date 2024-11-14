@@ -26,21 +26,6 @@ function OrderHelp({ setHelpOpenFalse }) {
   );
 }
 
-function AddOrder({ setAddOrderOpenFalse }){
-  return(
-    <>
-      <div>
-        <div>
-          <h2>Add Order</h2>
-        </div>
-        <div>
-          <button type="button" className='CloseHelp' onClick={setAddOrderOpenFalse}>X</button>
-        </div>
-      </div>
-    </>
-  )
-}
-
 // Orders Component
 function Orders() {
   const [isHelpOpen, setHelpOpen] = useState(false); // Toggle Help
@@ -52,6 +37,7 @@ function Orders() {
   const setHelpOpenFalse = () => {
     setHelpOpen(false);
   };
+
   //creating a new item
   const addTask = ( table, order={drink: '',starter:'', main:'', dessert:'' } ) => {
     setTasks((tasks) =>
@@ -85,19 +71,19 @@ function Orders() {
     ]
   )
 
-  // const [preparing, setPreparing] = useState([ 
-  //   {id: 1, table: "Pizza",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-  //   {id: 2, table:"chicken",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-  //   {id: 3, table: "24 Wings",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-  //   ]
-  // )
-  // const [served, setServed] = useState([ 
-  //   {id: 1, table: "Pizza",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-  //   {id: 2, table:"chicken",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-  //   {id: 3, table: "24 Wings",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-  //   ]
-  // )
-  const handleDragEnd = event => {
+  const [preparing, setPreparing] = useState([ 
+    {id: 1, table: "Pizza",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 2, table:"chicken",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 3, table: "24 Wings",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    ]
+  )
+  const [served, setServed] = useState([ 
+    {id: 1, table: "Pizza",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 2, table:"chicken",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 3, table: "24 Wings",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    ]
+  )
+  const handleDragEndO = event => {
     const {active, over} = event;
  
     if(active.id === over.id) return; //no change if the items dropped in the same place
@@ -109,11 +95,167 @@ function Orders() {
       return arrayMove(tasks, originalPosition, newPosition)
     })
   }
-    const sensors = useSensors(
+
+  const handleDragEndP = event => {
+    const {active, over} = event;
+ 
+    if(active.id === over.id) return; //no change if the items dropped in the same place
+    
+    setTasks( preparing =>{
+      const originalPosition = getTaskPositionY(active.id)
+      const newPosition = getTaskPositionY(over.id)
+    
+      return arrayMove(preparing, originalPosition, newPosition)
+    })
+  }
+  const handleDragEndS = event => {
+    const {active, over} = event;
+ 
+    if(active.id === over.id) return; //no change if the items dropped in the same place
+    
+    setTasks( served =>{
+      const originalPosition = getTaskPositionY(active.id)
+      const newPosition = getTaskPositionY(over.id)
+    
+      return arrayMove(served, originalPosition, newPosition)
+    })
+  }
+  
+  const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(TouchSensor),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
   );
+
+  function AddOrder({ addTask, setAddOrderOpenFalse }) {
+    // State to hold form values
+    const [order, setOrder] = useState({
+      drink: '',
+      starter: '',
+      main: '',
+      dessert: '',
+    });
+  
+    // Dummy data for the lists (you can replace these with dynamic data if needed)
+    const drinks = ['Water', 'Soda', 'Juice', 'Beer'];
+    const starters = ['Salad', 'Soup', 'Garlic Bread'];
+    const mains = ['Pizza', 'Burger', 'Pasta', 'Steak'];
+    const desserts = ['Ice Cream', 'Cake', 'Fruit Salad'];
+  
+    // Handle change for form fields
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setOrder((prevOrder) => ({
+        ...prevOrder,
+        [name]: value,
+      }));
+    };
+  
+    // Handle form submission
+    const handleSubmit = (e) => {
+      e.preventDefault();
+  
+      // Example: Assuming you want to add the order to table 'A1'
+      const table = 'A1';  // Or get it dynamically from your application state
+  
+      // Call addTask function to add the order to the tasks list
+      addTask(table, order);
+  
+      // Close the AddOrder form
+      setAddOrderOpenFalse();
+    };
+  
+    return (
+      <div className="AddOrderContainer">
+        <div className="Header">
+          <h2>Add Order</h2>
+          <button type="button" className="CloseHelp" onClick={setAddOrderOpenFalse}>
+            X
+          </button>
+        </div>
+  
+        <form onSubmit={handleSubmit} className="OrderForm">
+          <div className="FormGroup">
+            <label htmlFor="drink">Select Drink</label>
+            <select
+              id="drink"
+              name="drink"
+              value={order.drink}
+              onChange={handleChange}
+              className="OrderOptions"
+            >
+              <option value="">--Select a Drink--</option>
+              {drinks.map((drink, index) => (
+                <option key={index} value={drink}>
+                  {drink}
+                </option>
+              ))}
+            </select>
+          </div>
+  
+          <div className="FormGroup">
+            <label htmlFor="starter">Select Starter</label>
+            <select
+              id="starter"
+              name="starter"
+              value={order.starter}
+              onChange={handleChange}
+              className="OrderOptions"
+            >
+              <option value="">--Select a Starter--</option>
+              {starters.map((starter, index) => (
+                <option key={index} value={starter}>
+                  {starter}
+                </option>
+              ))}
+            </select>
+          </div>
+  
+          <div className="FormGroup">
+            <label htmlFor="main">Select Main</label>
+            <select
+              id="main"
+              name="main"
+              value={order.main}
+              onChange={handleChange}
+              className="OrderOptions"
+            >
+              <option value="">--Select a Main--</option>
+              {mains.map((main, index) => (
+                <option key={index} value={main}>
+                  {main}
+                </option>
+              ))}
+            </select>
+          </div>
+  
+          <div className="FormGroup">
+            <label htmlFor="dessert">Select Dessert</label>
+            <select
+              id="dessert"
+              name="dessert"
+              value={order.dessert}
+              onChange={handleChange}
+              className="OrderOptions"
+            >
+              <option value="">--Select a Dessert--</option>
+              {desserts.map((dessert, index) => (
+                <option key={index} value={dessert}>
+                  {dessert}
+                </option>
+              ))}
+            </select>
+          </div>
+  
+          <div className="FormActions">
+            <button type="submit" className="SubmitButton">
+              Submit Order
+            </button>
+          </div>
+        </form>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -127,8 +269,8 @@ function Orders() {
               <h2>🤵 Ordered</h2>
             </div>
             <div className="HomesBoxes2">
-            <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-              <Input onSubmit={addTask} />
+            <DndContext sensors={sensors} onDragEnd={handleDragEndO} collisionDetection={closestCorners}>
+              {/* <Input onSubmit={addTask} /> */}
               <Column tasks={tasks} onSubmit={addTask}/>
             </DndContext>
             </div>
@@ -139,8 +281,8 @@ function Orders() {
               <h2>👩‍🍳 Preparing</h2>
             </div>
             <div className="HomesBoxes2">
-              <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-                {/* <Column tasks={preparing} /> */}
+              <DndContext sensors={sensors} onDragEnd={handleDragEndP} collisionDetection={closestCorners}>
+                <Column tasks={preparing} />
               </DndContext>
             </div>
           </div>
@@ -149,8 +291,8 @@ function Orders() {
               <h2>👩‍💼 Served</h2>
             </div>
             <div className="HomesBoxes2">
-              <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-                {/* <Column tasks={served} /> */}
+              <DndContext sensors={sensors} onDragEnd={handleDragEndS} collisionDetection={closestCorners}>
+                <Column tasks={served} />
               </DndContext>
             </div>
           </div>
