@@ -29,7 +29,7 @@ function Tasks({ id, table, order }) {
 
   return (
     <div className="TaskBox" key={id}>
-      <h3 className="TheOrderNameText">{table}</h3>
+      <h3 className="TheTableName">{table}</h3>
     {/* Render order details */}
     <p className="TheOrderText"><strong className="TheOrderNameText">Drink:</strong> {order.drink}</p>
     <p className="TheOrderText"><strong className="TheOrderNameText">Starter:</strong> {order.starter}</p>

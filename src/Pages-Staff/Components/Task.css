@@ -7,5 +7,21 @@
     color: black;
     background-color: blue;
     position: static;
-    justify-content: ;
+}
+.TheTableName{
+    text-transform: capitalize;
+    font-size: 1.7rem;
+}
+.TheOrderNameText{
+    font-size: 1.5rem;
+}
+
+.TheOrderText{
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    left: 0;
+    margin-left: 2rem;
 }
