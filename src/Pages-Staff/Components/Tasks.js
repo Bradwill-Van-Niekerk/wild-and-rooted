@@ -8,24 +8,24 @@ function Tasks({id, title}){
   const style = {
     transition,
     transform: CSS.Transform.toString(transform),
-    padding: '8px',
-    margin: '4px',
+    padding: '2rem',
+    margin: '1rem',
     border: '1px solid #ddd',
-    borderRadius: '4px',
+    borderRadius: '2rem',
     backgroundColor: '#f8f8f8',
     cursor: 'move',
-    displayFlex: 'flex',
+    display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     alignItems: 'center',
     textAlign: 'left',
-    paddingLeft: '2rem', 
+    paddingLeft: '2rem',
   }
 
   return (
     <div ref={setNodeRef} {...attributes} {...listeners} style={style} > 
-      {title}
-      <button className="ShiftOver" > => </button>
+      <span>{title}</span>
+      <button className="ShiftOver" > =&gt </button>
     </div>
   )
 }
