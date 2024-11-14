@@ -1,7 +1,9 @@
 .ShiftOver{
     display: flex;
-    margin-left: 80%;
-    margin-top: -7%;
+    /* margin-left: 80%;
+    margin-top: -7%; */
+    justify-content: center;
+    align-self: center;
     color: black;
     background-color: blue;
     position: static;

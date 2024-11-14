@@ -1,33 +1,42 @@
-import { useSortable } from "@dnd-kit/sortable"
+import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from '@dnd-kit/utilities';
-import './Task.css'
+import './Task.css';
 
-function Tasks({id, title}){
-  const {attributes, listeners, setNodeRef, transform, transition} = useSortable({id})
-  
+function Tasks({ id, table, order }) {
+  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });
+
   const style = {
-    transition,
-    transform: CSS.Transform.toString(transform),
-    padding: '8px',
-    margin: '4px',
+    transition: transition || 'none',
+    transform: transform ? CSS.Transform.toString(transform) : '',
+    padding: '2rem',
+    margin: '1rem',
     border: '1px solid #ddd',
-    borderRadius: '4px',
+    borderRadius: '2rem',
     backgroundColor: '#f8f8f8',
     cursor: 'move',
-    displayFlex: 'flex',
+    display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     alignItems: 'center',
     textAlign: 'left',
-    paddingLeft: '2rem', 
-  }
+    height:'10rem'  ///
+  };
+
+  const handleShift = () => {
+    // Implement the logic to handle shifting, if necessary
+    console.log("Shift clicked");
+  };
 
   return (
-    <div ref={setNodeRef} {...attributes} {...listeners} style={style} > 
-      {title}
-      <button className="ShiftOver" > => </button>
-    </div>
-  )
+    <div className="TaskBox" key={id}>
+      <h3 className="TheOrderNameText">{table}</h3>
+    {/* Render order details */}
+    <p className="TheOrderText"><strong className="TheOrderNameText">Drink:</strong> {order.drink}</p>
+    <p className="TheOrderText"><strong className="TheOrderNameText">Starter:</strong> {order.starter}</p>
+    <p className="TheOrderText"><strong className="TheOrderNameText">Main:</strong> {order.main}</p>
+    <p className="TheOrderText"><strong className="TheOrderNameText">Dessert:</strong> {order.dessert}</p>
+  </div>
+  );
 }
 
-export default Tasks
+export default Tasks;

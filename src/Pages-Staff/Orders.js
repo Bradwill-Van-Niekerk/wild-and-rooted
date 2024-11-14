@@ -5,7 +5,7 @@ import { arrayMove,sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import Column from './Components/Column';
 import Input from './Components/Input';
 import { useSensors } from '@dnd-kit/core';
- 
+
 function OrderHelp({ setHelpOpenFalse }) {
  
   return (
@@ -25,28 +25,78 @@ function OrderHelp({ setHelpOpenFalse }) {
     </>
   );
 }
- 
+
+function AddOrder({ setAddOrderOpenFalse }){
+  return(
+    <>
+      <div>
+        <div>
+          <h2>Add Order</h2>
+        </div>
+        <div>
+          <button type="button" className='CloseHelp' onClick={setAddOrderOpenFalse}>X</button>
+        </div>
+      </div>
+    </>
+  )
+}
+
 // Orders Component
 function Orders() {
   const [isHelpOpen, setHelpOpen] = useState(false); // Toggle Help
+  const [isAddOrdersOpen, setAddOrderOpen] = useState(false);
+  
+  const setAddOrderOpenFalse = () => {
+    setAddOrderOpen(false);
+  }
   const setHelpOpenFalse = () => {
     setHelpOpen(false);
   };
-
-  const addTask = ( title ) => {
+  //creating a new item
+  const addTask = ( table, order={drink: '',starter:'', main:'', dessert:'' } ) => {
     setTasks((tasks) =>
-      [...tasks, { id: tasks.length + 1 , title }]
+      [...tasks, { id: tasks.length + 1,
+         table,
+         drink: order.drink,
+         starter: order.starter,
+         main: order.main, 
+         dessert: order.dessert }]
     );
   };
+  // //creating the item in that column
+  // const moveToPreparing = ( title ) => {
+  //   setPreparing((task) =>
+  //     [...preparing, { id: task.id , title }]
+  //   );
+  // };
+  // const addTaskz = ( title ) => {
+  //   setServed((preparing) =>
+  //     [...served, { id: preparing.id , title }]
+  //   );
+  // };
+
   //vert
   const getTaskPositionY = id => tasks.findIndex(task => task.id === id)
   
   const [tasks, setTasks] = useState([ 
-    {id: 1, title: "Pizza"},
-    {id: 2, title:"chicken"},
-    {id: 3, title: "24 Wings"},
+    {id: 1, table: "Pizza", order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 2, table:"chicken",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 3, table: "24 Wings",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
     ]
   )
+
+  // const [preparing, setPreparing] = useState([ 
+  //   {id: 1, table: "Pizza",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+  //   {id: 2, table:"chicken",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+  //   {id: 3, table: "24 Wings",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+  //   ]
+  // )
+  // const [served, setServed] = useState([ 
+  //   {id: 1, table: "Pizza",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+  //   {id: 2, table:"chicken",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+  //   {id: 3, table: "24 Wings",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+  //   ]
+  // )
   const handleDragEnd = event => {
     const {active, over} = event;
  
@@ -79,7 +129,7 @@ function Orders() {
             <div className="HomesBoxes2">
             <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
               <Input onSubmit={addTask} />
-              <Column tasks={tasks}/>
+              <Column tasks={tasks} onSubmit={addTask}/>
             </DndContext>
             </div>
           </div>
@@ -90,7 +140,7 @@ function Orders() {
             </div>
             <div className="HomesBoxes2">
               <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-                {/* <Column tasks={tasks[2]} /> */}
+                {/* <Column tasks={preparing} /> */}
               </DndContext>
             </div>
           </div>
@@ -100,7 +150,7 @@ function Orders() {
             </div>
             <div className="HomesBoxes2">
               <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-                {/* <Column tasks={tasks[3]} /> */}
+                {/* <Column tasks={served} /> */}
               </DndContext>
             </div>
           </div>
@@ -110,14 +160,21 @@ function Orders() {
       <div className='ExtraBtnsGrid'>
         <div className='OrdersBtn1'>
           {!isHelpOpen && (
-            <button className='HelpBtn' onClick={() => setHelpOpen(true)}>
-              Help
+            <button className='AddOrderBtn' onClick={() => setAddOrderOpen(true)}>
+              Add
             </button>
           )}
         </div>
- 
+        <div className='OrdersBtn2'>
+          {!isHelpOpen && (
+            <button className='HelpBtn' onClick={() => setHelpOpen(true)}>
+              ?
+            </button>
+          )}
+        </div>
+
         {isHelpOpen && <OrderHelp setHelpOpenFalse={setHelpOpenFalse} />}
- 
+        {isAddOrdersOpen && <AddOrder setAddOrderOpenFalse={setAddOrderOpenFalse} />}
       </div>
     </>
   );
