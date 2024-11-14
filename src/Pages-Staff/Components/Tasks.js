@@ -2,7 +2,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from '@dnd-kit/utilities';
 import './Task.css';
 
-function Tasks({ id, table, order = { drink: '', starter: '', main: '', dessert: '' } }) {
+function Tasks({ id, table, order }) {
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });
 
   const style = {
@@ -28,36 +28,14 @@ function Tasks({ id, table, order = { drink: '', starter: '', main: '', dessert:
   };
 
   return (
-    // <div ref={setNodeRef} {...attributes} {...listeners} style={style}>
-    //   <span>{table}</span>
-    //   <span>{order.drink}</span>
-    //   <span>{order.starter}</span>
-    //   <span>{order.main}</span>
-    //   <span>{order.dessert}</span>
-    //   <button className="ShiftOver" onClick={handleShift}> ={'>'} </button>
-    // </div>
-    <>
-    {subtasks.map((subtask, subtaskIndex) => (
-      <div key={subtaskIndex}>
-        <h4><h2>{subtask.table}</h2>
-          <ul>
-            <li>
-              {subtask.drink}
-            </li>
-            <li>
-              {subtask.starter}
-            </li>
-            <li>
-              {subtask.main}
-            </li>
-            <li>
-              {subtask.dessert}
-            </li>
-          </ul>
-        </h4>
-      </div>
-    ))}
-    </>
+    <div className="task" key={id}>
+      <h3>{table}</h3>
+    {/* Render order details */}
+    <p><strong>Drink:</strong> {order.drink}</p>
+    <p><strong>Starter:</strong> {order.starter}</p>
+    <p><strong>Main:</strong> {order.main}</p>
+    <p><strong>Dessert:</strong> {order.dessert}</p>
+  </div>
   );
 }
 
