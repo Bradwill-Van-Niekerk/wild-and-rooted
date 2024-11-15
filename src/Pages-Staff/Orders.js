@@ -135,9 +135,9 @@ function Orders() {
   
     // Dummy data for the lists (you can replace these with dynamic data if needed)
     const drinks = ['Water', 'Soda', 'Juice', 'Beer'];
-    const starters = ['Salad', 'Soup', 'Garlic Bread'];
-    const mains = ['Pizza', 'Burger', 'Pasta', 'Steak'];
-    const desserts = ['Ice Cream', 'Cake', 'Fruit Salad'];
+    const starters = ['Seasonal Salad', 'Vegetable Soup', 'Bruschetta'];
+    const mains = ['Roasted Chicken', 'Pasta', 'Stuffed Acorn Squash'];
+    const desserts = ['Honey and Lavender Ice Cream', 'Baked Apples/Pears', 'Peanut Butter Dessert'];
   
     // Handle change for form fields
     const handleChange = (e) => {
@@ -245,7 +245,7 @@ function Orders() {
           </div>
   
           <div className="FormActions">
-            <button type="submit" className="SubmitButton">
+            <button type="submit" className="OrdersSubmitButton">
               Submit Order
             </button>
           </div>
