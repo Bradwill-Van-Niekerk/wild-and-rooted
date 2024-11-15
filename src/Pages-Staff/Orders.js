@@ -67,22 +67,19 @@ function Orders() {
   const getTaskPositionS = id => served.findIndex(served => served.id === id)
   
   const [tasks, setTasks] = useState([ 
-    {id: 1, table: "Table 9", order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-    {id: 2, table: "Table 8",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-    {id: 3, table: "Table 7",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 1, table: "Table 9", order:{drink: 'coffee',starter:'Seasonal Salad', main:'Roasted Chicken',dessert:'Ice cream' }},
     ]
   )
 
   const [preparing, setPreparing] = useState([ 
-    {id: 1, table: "Table 2",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-    {id: 2, table: "Table 5",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-    {id: 3, table: "Table 4",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 1, table: "Table 2",order:{drink: 'coffee',starter:'Bruschetta', main:'Pasta',dessert:'Ice cream' }},
+    {id: 2, table: "Table 5",order:{drink: 'coffee',starter:'Vegetable Soup', main:'Roasted Chicken',dessert:'Ice cream' }},
     ]
   )
   const [served, setServed] = useState([ 
-    {id: 1, table: "Table 1",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-    {id: 2, table: "Table 6",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-    {id: 3, table: "Table 3",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 1, table: "Table 1",order:{drink: 'coffee',starter:'Seasonal Salad', main:'Roasted Chicken',dessert:'Ice cream' }},
+    {id: 2, table: "Table 6",order:{drink: 'coffee',starter:'Vegetable Soup', main:'Stuffed Acorn Squash',dessert:'Peanut Butter Dessert' }},
+    {id: 3, table: "Table 3",order:{drink: 'coffee',starter:'Bruschetta', main:'Pasta',dessert:'Baked Apples or Pears' }},
     ]
   )
   const handleDragEndO = eventO => {
