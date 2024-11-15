@@ -4,12 +4,16 @@ import { Link } from 'react-router-dom';
 import './carts.css';
 
 const Cart = () => {
-  const { cart, removeFromCart, clearCart } = useContext(CartContext);
+  const { cart, addToCart, removeFromCart, clearCart } = useContext(CartContext);
   const [checkoutSuccess, setCheckoutSuccess] = useState(false);
 
+  // Calculate total price based on quantity
   const calculateTotal = () => {
     return cart
-      .reduce((total, item) => total + parseFloat(item.price.split(" ")[0].replace("R", "")), 0)
+      .reduce(
+        (total, item) => total + parseFloat(item.price.split(" ")[0].replace("R", "")) * item.quantity,
+        0
+      )
       .toFixed(2);
   };
 
@@ -34,11 +38,19 @@ const Cart = () => {
             <div key={item.id} className="cart-item">
               <img src={item.image} alt={item.name} className="cart-item-image" />
               <div>
-                <h3>{item.name}</h3>
-                <p>Price: {item.price}</p>
-                <button onClick={() => removeFromCart(item.id)} className="remove-item-btn">
-                  Remove
-                </button>
+                <h3>{item.name} (x{item.quantity})</h3>
+                <p>Price per unit: {item.price}</p>
+                <p>Subtotal: R {(parseFloat(item.price.split(" ")[0].replace("R", "")) * item.quantity).toFixed(2)}</p>
+                
+                {/* Add and Remove Buttons */}
+                <div className="item-controls">
+                  <button onClick={() => removeFromCart(item.id)} className="remove-item-btn">
+                    ➖ Remove
+                  </button>
+                  <button onClick={() => addToCart(item)} className="add-item-btn">
+                    ➕ Add
+                  </button>
+                </div>
               </div>
             </div>
           ))}

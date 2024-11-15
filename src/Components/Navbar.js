@@ -39,15 +39,15 @@ const Navbar = () => {
             {isDropdownOpen && (
   <ul className="dropdown-menu">
     <li><Link to='/Categories/Fruits' className="dropdown-item">Fruits</Link></li>
-    <li><Link to='/Categories/vegetables' className="dropdown-item">Vegetables</Link></li>
+    <li><Link to='/Categories/Vegetables' className="dropdown-item">Vegetables</Link></li>
     <li><Link to='/Categories/Food' className="dropdown-item">Food</Link></li>
   </ul>
 )}
           </li>
+          <li><Link to="/Orders" className={`link ${location.pathname === '/Orders' ? 'active' : ''}`}>Orders</Link></li>
+          <li><Link to="/Inventory" className={`link ${location.pathname === '/Inventory' ? 'active' : ''}`}>Inventory</Link></li> 
           <li><Link to='/Registration' className={`link ${location.pathname === '/Registration' ? 'active' : ''}`}>Register</Link></li>
           <li><Link to='/Login' className={`link ${location.pathname === '/Login' ? 'active' : ''}`}>Login</Link></li>
-          <li><Link to="/Orders" className={`link ${location.pathname === '/Orders' ? 'active' : ''}`}>Orders</Link></li>
-          <li><Link to="/Inventory" className={`link ${location.pathname === '/Inventory' ? 'active' : ''}`}>Inventory</Link></li>  
           <li>
             <Link to='/Cart' className={`link ${location.pathname === '/Cart' ? 'active' : ''}`}>
               <FaShoppingCart className="cart-icon" />

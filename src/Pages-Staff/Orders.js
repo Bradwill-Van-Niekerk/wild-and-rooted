@@ -62,62 +62,64 @@ function Orders() {
   // };
 
   //vert
-  const getTaskPositionY = id => tasks.findIndex(task => task.id === id)
+  const getTaskPositionO = id => tasks.findIndex(task => task.id === id)
+  const getTaskPositionP = id => preparing.findIndex(prepare => prepare.id === id)
+  const getTaskPositionS = id => served.findIndex(served => served.id === id)
   
   const [tasks, setTasks] = useState([ 
-    {id: 1, table: "Pizza", order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-    {id: 2, table:"chicken",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-    {id: 3, table: "24 Wings",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 1, table: "Table 9", order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 2, table: "Table 8",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 3, table: "Table 7",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
     ]
   )
 
   const [preparing, setPreparing] = useState([ 
-    {id: 1, table: "Pizza",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-    {id: 2, table:"chicken",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-    {id: 3, table: "24 Wings",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 1, table: "Table 2",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 2, table: "Table 5",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 3, table: "Table 4",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
     ]
   )
   const [served, setServed] = useState([ 
-    {id: 1, table: "Pizza",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-    {id: 2, table:"chicken",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
-    {id: 3, table: "24 Wings",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 1, table: "Table 1",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 2, table: "Table 6",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
+    {id: 3, table: "Table 3",order:{drink: 'coffee',starter:'soup', main:'Steak and Chops',dessert:'Ice cream' }},
     ]
   )
-  const handleDragEndO = event => {
-    const {active, over} = event;
+  const handleDragEndO = eventO => {
+    const {active, over} = eventO;
  
     if(active.id === over.id) return; //no change if the items dropped in the same place
     
     setTasks( tasks =>{
-      const originalPosition = getTaskPositionY(active.id)
-      const newPosition = getTaskPositionY(over.id)
+      const originalPositionO = getTaskPositionO(active.id)
+      const newPositionO = getTaskPositionO(over.id)
     
-      return arrayMove(tasks, originalPosition, newPosition)
+      return arrayMove(tasks, originalPositionO, newPositionO)
     })
   }
 
-  const handleDragEndP = event => {
-    const {active, over} = event;
+  const handleDragEndP = eventP => {
+    const {active, over} = eventP;
  
     if(active.id === over.id) return; //no change if the items dropped in the same place
     
     setTasks( preparing =>{
-      const originalPosition = getTaskPositionY(active.id)
-      const newPosition = getTaskPositionY(over.id)
+      const originalPositionP = getTaskPositionP(active.id)
+      const newPositionP = getTaskPositionP(over.id)
     
-      return arrayMove(preparing, originalPosition, newPosition)
+      return arrayMove(preparing, originalPositionP, newPositionP)
     })
   }
-  const handleDragEndS = event => {
-    const {active, over} = event;
+  const handleDragEndS = eventS => {
+    const {activeS, overS} = eventS;
  
-    if(active.id === over.id) return; //no change if the items dropped in the same place
+    if(activeS.id === overS.id) return; //no change if the items dropped in the same place
     
     setTasks( served =>{
-      const originalPosition = getTaskPositionY(active.id)
-      const newPosition = getTaskPositionY(over.id)
+      const originalPositionS = getTaskPositionS(activeS.id)
+      const newPositionS = getTaskPositionS(overS.id)
     
-      return arrayMove(served, originalPosition, newPosition)
+      return arrayMove(served, originalPositionS, newPositionS)
     })
   }
   

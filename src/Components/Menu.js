@@ -17,7 +17,7 @@ const menuData = [
     link: "order.html"
   },
   {
-    route: "/Categories/Vegs",
+    route: "/Categories/Vegetables",
     image: vegetablesImage,
     alt: "Local Organic Vegetables",
     name: "Vegetables",

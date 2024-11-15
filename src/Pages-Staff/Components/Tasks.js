@@ -50,3 +50,4 @@ function Tasks({ id, table, order }) {
 }
 
 export default Tasks;
+
