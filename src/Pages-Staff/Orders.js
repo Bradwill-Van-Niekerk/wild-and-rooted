@@ -16,10 +16,8 @@ function OrderHelp({ setHelpOpenFalse }) {
           <button type="button" className='CloseHelp' onClick={setHelpOpenFalse}>X</button>
         </div>
           <h3 className='HelpHeading'>Help</h3>
-          <p><strong>To use the app, you can start by adding a new order by clicking the "add order" button.</strong>
-          <br/>You can view and update orders by selecting them directly from the list. Inside the order, you can manually
-            change information associated with an order or update its status. However, note that you can quickly change the
-            status of an order by dragging it between the three different columns with your mouse.</p>
+          <p><strong>To use the: <br/>Add Order</strong> : clicking "Add Order" button, you will open up pop up that will allow you to create a new order. You can select 1 item from the each drop down option and once you've completed you need to click submit
+          <br/>You can also Drag the order inside the column to rearrange the order dragging it with your mouse.</p>
         </div>
       </div>
     </>
@@ -273,8 +271,9 @@ function Orders() {
               <Column tasks={tasks} onSubmit={addTask}/>
             </DndContext>
             </div>
+            <p>Last</p>
           </div>
- 
+          
           <div className="HomesBoxe2">
             <div className="HomesBoxes1">
               <h2>👩‍🍳 Preparing</h2>
@@ -284,6 +283,7 @@ function Orders() {
                 <Column tasks={preparing} />
               </DndContext>
             </div>
+            <p>Last</p>
           </div>
           <div className="HomesBoxe3">
             <div className="HomesBoxes1">
@@ -294,6 +294,7 @@ function Orders() {
                 <Column tasks={served} />
               </DndContext>
             </div>
+            <p>Last</p>
           </div>
       </div>
  
@@ -302,7 +303,7 @@ function Orders() {
         <div className='OrdersBtn1'>
           {!isHelpOpen && (
             <button className='AddOrderBtn' onClick={() => setAddOrderOpen(true)}>
-              Add
+              Add Order
             </button>
           )}
         </div>

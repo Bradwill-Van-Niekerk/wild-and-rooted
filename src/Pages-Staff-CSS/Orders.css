@@ -16,7 +16,16 @@
 .HomesBoxe1{
     width: 100%;
     border: 1px solid black;
-    height: 5rem;
+    text-align: center;
+}
+.HomesBoxe2{
+    width: 100%;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+.HomesBoxe3{
+    width: 100%;
+    border: 1px solid black;
     text-align: center;
 }
 .HomesBoxes1{
@@ -109,7 +118,7 @@
     background-color: white;
     text-align: center;
     display: flex;
-    margin-left: 60rem;
+    margin-left: 50rem;
     justify-content: center; /*Hori*/
     z-index: 1000; /*keeps it fixed*/
 }
