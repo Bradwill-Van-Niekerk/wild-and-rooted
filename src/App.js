@@ -14,7 +14,7 @@ import Menu from './Components/Menu';
 import Inventory from './Pages-Staff/Inventory';
 import Vegetable from './Pages/vegetables';
 import Fruits from './Pages/Fruits';
-import axios from 'axios'
+import axios from 'axios';
 
 const apiCall = () => {
   axios.get('http://localhost:8080').then((data) => {
